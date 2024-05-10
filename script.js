@@ -85,9 +85,7 @@ function calculation() {
 
 function calculateTotalCost()
 {
-    var result = 97; // Replace with your actual calculation result
-    // Redirect to the result page with the result as a parameter in the URL
-    window.location.href = 'result.html?result=' + result;
+
     console.log(quantityRequired);
     console.log(spacing);
     console.log(burden);
@@ -111,5 +109,27 @@ function calculateTotalCost()
     console.log(travelTime);
     console.log(travelBackTime);
     console.log(millage);
+
+    var noofHoles = quantityRequired/(spacing*burden*depth*specificGravity);
+
+    var explosivesNeededfor1hole = ((depth*0.75)/0.20)*0.125;
+
+    var totalExplosiveNeeded = explosivesNeededfor1hole * noofHoles;
+
+    var totalCostforExplosive = totalExplosiveNeeded * rateOfExplosive;
+
+    var explosiveCostPerTon = totalCostforExplosive/quantityRequired;
+
+
+
+
+
+
+    var overAllTotalCost = 97; // Replace with your actual calculation result
+
+    var result = overAllTotalCost; 
+
+    // Redirect to the result page with the result as a parameter in the URL
+    window.location.href = 'result.html?result=' + result;
 
 }
