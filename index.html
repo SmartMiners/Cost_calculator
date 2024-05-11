@@ -1,118 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cost Calculator</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cost Calculator</title>
+  <style>
     body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  .container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  h1, h3 {
-    font-size: 24px;
-    text-align: center;
-  }
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  .required {
-    color: red;
-  }
-  input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  .error-message {
-    color: red;
-    font-size: 14px;
-  }
-  .calculate-button {
-    width: 50%;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-  }
-  .calculate-button:hover {
-    background-color: #45a049;
-  }
-</style>
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h1,
+    h3 {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .required {
+      color: red;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+    }
+
+    .calculate-button {
+      width: 50%;
+      margin: 0 auto;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+    }
+
+    .calculate-button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
+
 <body>
-<div class="container">
-  <h1>Cost Calculator</h1>
-  
-  <label for="quantityRequired">Quantity Required in Tons<span class="required">*</span>:</label>
-  <input type="number" id="quantityRequired" placeholder="Enter quantity required..." required>
-  <label for="spacing">Spacing<span class="required">*</span>:</label>
-  <input type="number" id="spacing" placeholder="Enter spacing..." required>
-  <label for="burden">Burden<span class="required">*</span>:</label>
-  <input type="number" id="burden" placeholder="Enter burden..." required>
-  <label for="depth">Depth<span class="required">*</span>:</label>
-  <input type="number" id="depth" placeholder="Enter depth..." required>
-  <label for="specificGravity">Specific Gravity<span class="required">*</span>:</label>
-  <input type="number" id="specificGravity" placeholder="Enter specific gravity..." required>
-  <label for="penetration">Penetration<span class="required">*</span>:</label>
-  <input type="number" id="penetration" placeholder="Enter penetration..." required>
-  <label for="rateOfExplosive">Rate of Explosive per kg<span class="required">*</span>:</label>
-  <input type="number" id="rateOfExplosive" placeholder="Enter rate of explosive per kg..." required>
-  <label for="accessoriesCost">Accessories Cost per Meter<span class="required">*</span>:</label>
-  <input type="number" id="accessoriesCost" placeholder="Enter accessories cost per meter..." required>
-  <label for="compressorDieselConsumption">Compressor Diesel Consumption per hour<span class="required">*</span>:</label>
-  <input type="number" id="compressorDieselConsumption" placeholder="Enter compressor diesel consumption per hour..." required>
-  <label for="dieselRate">Rate of Diesel Per Liter in Rupees<span class="required">*</span>:</label>
-  <input type="number" id="dieselRate" placeholder="Enter rate of diesel per liter in rupees..." required>
-  <label for="crusherCapacity">Crusher Capacity<span class="required">*</span>:</label>
-  <input type="number" id="crusherCapacity" placeholder="Enter crusher capacity..." required>
-  
-  <h3>Excavator</h3>
-  <label for="bucketCapacity">Bucket Capacity<span class="required">*</span>:</label>
-  <input type="number" id="bucketCapacity" placeholder="Enter bucket capacity..." required>
-  <label for="bucketFillFactor">Bucket Fill Factor<span class="required">*</span>:</label>
-  <input type="number" id="bucketFillFactor" placeholder="Enter bucket fill factor..." required>
-  <label for="swingTime">Swing Time<span class="required">*</span>:</label>
-  <input type="number" id="swingTime" placeholder="Enter swing time..." required>
-  <label for="backSwingTime">Back Swing Time<span class="required">*</span>:</label>
-  <input type="number" id="backSwingTime" placeholder="Enter back swing time..." required>
-  <label for="excavatorDieselConsumption">Excavator Diesel Consumption Per Hour<span class="required">*</span>:</label>
-  <input type="number" id="excavatorDieselConsumption" placeholder="Enter excavator diesel consumption..." required>
-  
-  <h3>Tipper</h3>
-  <label for="tipperCapacity">Tipper Capacity<span class="required">*</span>:</label>
-  <input type="number" id="tipperCapacity" placeholder="Enter tipper capacity..." required>
-  <label for="leadDistance">Lead Distance<span class="required">*</span>:</label>
-  <input type="number" id="leadDistance" placeholder="Enter lead distance..." required>
-  <label for="travelTime">Travel Time Waiting & Unloading Time<span class="required">*</span>:</label>
-  <input type="number" id="travelTime" placeholder="Enter travel time..." required>
-  <label for="travelBackTime">Travel Back Time<span class="required">*</span>:</label>
-  <input type="number" id="travelBackTime" placeholder="Enter travel back time..." required>
-  <label for="millage">Millage<span class="required">*</span>:</label>
-  <input type="number" id="millage" placeholder="Enter millage..." required>
-  
-  <div id="errorMessages" class="error-message"></div>
+  <div class="container">
+    <h1>Cost Calculator</h1>
 
-  <button class="calculate-button" onclick="validate()">Calculate</button>
-</div>
+    <label for="quantityRequired">Quantity Required in Tons<span class="required">*</span>:</label>
+    <input type="number" id="quantityRequired" placeholder="Enter quantity required..." required>
 
-<script src="script.js"></script>
+    <label for="spacing">Spacing<span class="required">*</span>:</label>
+    <input type="number" id="spacing" placeholder="Enter spacing..." required>
+
+    <label for="burden">Burden<span class="required">*</span>:</label>
+    <input type="number" id="burden" placeholder="Enter burden..." required>
+
+    <label for="depth">Depth<span class="required">*</span>:</label>
+    <input type="number" id="depth" placeholder="Enter depth..." required>
+
+    <label for="specificGravity">Specific Gravity<span class="required">*</span>:</label>
+    <input type="number" id="specificGravity" placeholder="Enter specific gravity..." required>
+
+    <label for="penetration">Penetration Rate<span class="required">*</span>:</label>
+    <input type="number" id="penetration" placeholder="Enter penetration..." required>
+
+    <label for="rateOfExplosive">Rate of Explosive per kg<span class="required">*</span>:</label>
+    <input type="number" id="rateOfExplosive" placeholder="Enter rate of explosive per kg..." required>
+    
+    <label for="rateOfAnfo">Rate of AN per kg<span class="required">*</span>:</label>
+    <input type="number" id="rateOfAnfo" placeholder="Enter rate of ANFO per kg..." required>
+
+    <label for="accessoriesCost">Accessories Cost per Meter<span class="required">*</span>:</label>
+    <input type="number" id="accessoriesCost" placeholder="Enter accessories cost per meter..." required>
+
+    <label for="compressorDieselConsumption">Compressor Diesel Consumption per hour<span class="required">*</span>:</label>
+    <input type="number" id="compressorDieselConsumption" placeholder="Enter compressor diesel consumption per hour..." required>
+
+    <label for="dieselRate">Rate of Diesel Per Liter in Rupees<span class="required">*</span>:</label>
+    <input type="number" id="dieselRate" placeholder="Enter rate of diesel per liter in rupees..." required>
+
+    <label for="crusherCapacity">Crusher Capacity<span class="required">*</span>:</label>
+    <input type="number" id="crusherCapacity" placeholder="Enter crusher capacity..." required>
+
+    <label for="operatingHours">Operating Hours<span class="required">*</span>:</label>
+    <input type="number" id="operatingHours" placeholder="How much hours the operations happen" required>
+
+    <!-----------------------------------------------EXCAVATOR--------------------------------------------->
+
+    <h3>Excavator</h3>
+    <label for="bucketCapacity">Bucket Capacity<span class="required">*</span>:</label>
+    <input type="number" id="bucketCapacity" placeholder="Enter bucket capacity..." required>
+
+    <label for="bucketFillFactor">Bucket Fill Factor<span class="required">*</span>:</label>
+    <input type="number" id="bucketFillFactor" placeholder="Enter bucket fill factor..." required>
+
+    <label for="swingTime">Swing Time<span class="required">*</span>:</label>
+    <input type="number" id="swingTime" placeholder="Enter swing time..." required>
+
+    <label for="backSwingTime">Back Swing Time<span class="required">*</span>:</label>
+    <input type="number" id="backSwingTime" placeholder="Enter back swing time..." required>
+
+    <label for="excavatorDieselConsumption">Excavator Diesel Consumption Per Hour<span class="required">*</span>:</label>
+    <input type="number" id="excavatorDieselConsumption" placeholder="Enter excavator diesel consumption..." required>
+
+    <!-----------------------------------------------TIPPER--------------------------------------------->
+
+    <h3>Tipper</h3>
+    <label for="tipperCapacity">Tipper Capacity<span class="required">*</span>:</label>
+    <input type="number" id="tipperCapacity" placeholder="Enter tipper capacity..." required>
+
+    <label for="leadDistance">Lead Distance<span class="required">*</span>:</label>
+    <input type="number" id="leadDistance" placeholder="Enter lead distance..." required>
+
+    <label for="waitingTime">Waiting & Unloading Time<span class="required">*</span>:</label>
+    <input type="number" id="waitingTime" placeholder="Enter waiting Time and unloading time..." required>
+
+    <label for="mileage">Mileage<span class="required">*</span>:</label>
+    <input type="number" id="mileage" placeholder="Enter mileage..." required>
+
+    <label for="test_Input">Test Input<span class="required">*</span>:</label>
+    <input type="number" id="test_Input" placeholder="Enter test_Input..." required>
+
+    <div id="errorMessages" class="error-message"></div>
+
+    <button class="calculate-button" onclick="validate()">Calculate</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
