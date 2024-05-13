@@ -235,7 +235,8 @@ function calculateTotalCost()
     var overAllTotalCost = Math.round(drillingCostperton + explosiveCostPerTon + accessoriesCostperton +sizingCostperton+ excavatorCostperton + tipperCostperton ) ; // Replace with your actual calculation result
   
   console.log(overAllTotalCost);
-  
+
+    var result = overAllTotalCost;
 
     // Redirect to the result page with the result as a parameter in the URL
     window.location.href = 'result.html?result=' + result;
