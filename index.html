@@ -70,82 +70,83 @@
 
 <body>
   <div class="container">
-    <h1>Cost Calculator</h1>
+    <h1>Cost Calculator (Beta version* for JH drilling)</h1>
 
-    <label for="quantityRequired">Quantity Required in Tons<span class="required">*</span>:</label>
-    <input type="number" id="quantityRequired" placeholder="Enter quantity required..." required>
+    <label for="quantityRequired">Quantity Required (in Metric Tons)<span class="required">*</span>:</label>
+    <input type="number" id="quantityRequired" placeholder="Enter quantity required...(example: 1500)" required>
+    
+    <label for="drillHolediameter">Drill Hole Diameter(in mm)<span class="required">*</span>:</label>
+    <input type="number" id="drillHolediameter" placeholder="Enter Drill Hole Diameter(example: 32)" required>
 
-    <label for="spacing">Spacing<span class="required">*</span>:</label>
-    <input type="number" id="spacing" placeholder="Enter spacing..." required>
+    <label for="spacing">Spacing (in Meters)<span class="required">*</span>:</label>
+    <input type="number" id="spacing" placeholder="Enter spacing...(example: 1)" required>
 
-    <label for="burden">Burden<span class="required">*</span>:</label>
-    <input type="number" id="burden" placeholder="Enter burden..." required>
+    <label for="burden">Burden (in Meters)<span class="required">*</span>:</label>
+    <input type="number" id="burden" placeholder="Enter burden...(example: 1)" required>
 
-    <label for="depth">Depth<span class="required">*</span>:</label>
-    <input type="number" id="depth" placeholder="Enter depth..." required>
+    <label for="depth">Depth  (in Meters)<span class="required">*</span>:</label>
+    <input type="number" id="depth" placeholder="Enter depth...(example: 1.8)" required>
 
     <label for="specificGravity">Specific Gravity<span class="required">*</span>:</label>
-    <input type="number" id="specificGravity" placeholder="Enter specific gravity..." required>
+    <input type="number" id="specificGravity" placeholder="Enter specific gravity...(example: 2.6)" required>
 
-    <label for="penetration">Penetration Rate<span class="required">*</span>:</label>
-    <input type="number" id="penetration" placeholder="Enter penetration..." required>
+    <label for="penetration">Penetration Rate  (in Meters per Hour)<span class="required">*</span>:</label>
+    <input type="number" id="penetration" placeholder="Enter penetration...(example: 45)" required>
 
-    <label for="rateOfExplosive">Rate of Explosive per kg<span class="required">*</span>:</label>
-    <input type="number" id="rateOfExplosive" placeholder="Enter rate of explosive per kg..." required>
+    <label for="rateOfExplosive">Rate of Explosive per kg (in Rs)<span class="required">*</span>:</label>
+    <input type="number" id="rateOfExplosive" placeholder="Enter rate of explosive per kg...(example: 80)" required>
     
-    <label for="rateOfAnfo">Rate of AN per kg<span class="required">*</span>:</label>
-    <input type="number" id="rateOfAnfo" placeholder="Enter rate of ANFO per kg..." required>
+    <label for="rateOfAnfo">Rate of AN per kg (in Rs)<span class="required">*</span>:</label>
+    <input type="number" id="rateOfAnfo" placeholder="Enter rate of ANFO per kg...(example: 75)" required>
 
-    <label for="accessoriesCost">Accessories Cost per Meter<span class="required">*</span>:</label>
-    <input type="number" id="accessoriesCost" placeholder="Enter accessories cost per meter..." required>
+    <label for="accessoriesCost">Accessories Cost per Meter (in Rs)<span class="required">*</span>:</label>
+    <input type="number" id="accessoriesCost" placeholder="Enter accessories cost per meter...(example: 8)" required>
 
-    <label for="compressorDieselConsumption">Compressor Diesel Consumption per hour<span class="required">*</span>:</label>
-    <input type="number" id="compressorDieselConsumption" placeholder="Enter compressor diesel consumption per hour..." required>
+    <label for="compressorDieselConsumption">Compressor Diesel Consumption (Litres per Hour)<span class="required">*</span>:</label>
+    <input type="number" id="compressorDieselConsumption" placeholder="Enter compressor diesel consumption per hour...(example: 14)" required>
 
-    <label for="dieselRate">Rate of Diesel Per Liter in Rupees<span class="required">*</span>:</label>
-    <input type="number" id="dieselRate" placeholder="Enter rate of diesel per liter in rupees..." required>
+    <label for="dieselRate">Rate of Diesel Per Liter (in Rs)<span class="required">*</span>:</label>
+    <input type="number" id="dieselRate" placeholder="Enter rate of diesel per liter in rupees...(example: 95)" required>
 
-    <label for="crusherCapacity">Crusher Capacity<span class="required">*</span>:</label>
-    <input type="number" id="crusherCapacity" placeholder="Enter crusher capacity..." required>
+    <label for="crusherCapacity">Crusher Capacity (in TPH)<span class="required">*</span>:</label>
+    <input type="number" id="crusherCapacity" placeholder="Enter crusher capacity...(example: 300)" required>
 
-    <label for="operatingHours">Operating Hours<span class="required">*</span>:</label>
-    <input type="number" id="operatingHours" placeholder="How much hours the operations happen" required>
+    <label for="operatingHours">Operating Hours (in Hours)<span class="required">*</span>:</label>
+    <input type="number" id="operatingHours" placeholder="How much hours the operations happen...(example: 6)" required>
 
     <!-----------------------------------------------EXCAVATOR--------------------------------------------->
 
     <h3>Excavator</h3>
-    <label for="bucketCapacity">Bucket Capacity<span class="required">*</span>:</label>
-    <input type="number" id="bucketCapacity" placeholder="Enter bucket capacity..." required>
+    <label for="bucketCapacity">Bucket Capacity (in Cu.M)<span class="required">*</span>:</label>
+    <input type="number" id="bucketCapacity" placeholder="Enter bucket capacity...(example: 2.1)" required>
 
-    <label for="bucketFillFactor">Bucket Fill Factor<span class="required">*</span>:</label>
-    <input type="number" id="bucketFillFactor" placeholder="Enter bucket fill factor..." required>
+    <label for="bucketFillFactor">Bucket Fill Factor (in %)<span class="required">*</span>:</label>
+    <input type="number" id="bucketFillFactor" placeholder="Enter bucket fill factor... Example: 80" required>
 
-    <label for="swingTime">Swing Time<span class="required">*</span>:</label>
-    <input type="number" id="swingTime" placeholder="Enter swing time..." required>
+    <label for="swingTime">Swing Time (in Seconds)<span class="required">*</span>:</label>
+    <input type="number" id="swingTime" placeholder="Enter swing time...(example: 30)" required>
 
-    <label for="backSwingTime">Back Swing Time<span class="required">*</span>:</label>
-    <input type="number" id="backSwingTime" placeholder="Enter back swing time..." required>
+    <label for="backSwingTime">Back Swing Time (in Seconds)<span class="required">*</span>:</label>
+    <input type="number" id="backSwingTime" placeholder="Enter back swing time...(example: 30)" required>
 
-    <label for="excavatorDieselConsumption">Excavator Diesel Consumption Per Hour<span class="required">*</span>:</label>
-    <input type="number" id="excavatorDieselConsumption" placeholder="Enter excavator diesel consumption..." required>
+    <label for="excavatorDieselConsumption">Excavator Diesel Consumption Per Hour (in Litres/Hour)<span class="required">*</span>:</label>
+    <input type="number" id="excavatorDieselConsumption" placeholder="Enter excavator diesel consumption...(example: 20)" required>
 
     <!-----------------------------------------------TIPPER--------------------------------------------->
 
     <h3>Tipper</h3>
-    <label for="tipperCapacity">Tipper Capacity<span class="required">*</span>:</label>
-    <input type="number" id="tipperCapacity" placeholder="Enter tipper capacity..." required>
+    <label for="tipperCapacity">Tipper Capacity (in Metric Tons)<span class="required">*</span>:</label>
+    <input type="number" id="tipperCapacity" placeholder="Enter tipper capacity...(example: 25)" required>
 
-    <label for="leadDistance">Lead Distance<span class="required">*</span>:</label>
-    <input type="number" id="leadDistance" placeholder="Enter lead distance..." required>
+    <label for="leadDistance">Lead Distance (in Kms)<span class="required">*</span>:</label>
+    <input type="number" id="leadDistance" placeholder="Enter lead distance...(example: 4)" required>
 
-    <label for="waitingTime">Waiting & Unloading Time<span class="required">*</span>:</label>
-    <input type="number" id="waitingTime" placeholder="Enter waiting Time and unloading time..." required>
+    <label for="waitingTime">Waiting & Unloading Time(in Minutes)<span class="required">*</span>:</label>
+    <input type="number" id="waitingTime" placeholder="Enter waiting Time and unloading time...(example: 3)" required>
 
-    <label for="mileage">Mileage<span class="required">*</span>:</label>
-    <input type="number" id="mileage" placeholder="Enter mileage..." required>
+    <label for="mileage">Mileage (in Kms/Litre)<span class="required">*</span>:</label>
+    <input type="number" id="mileage" placeholder="Enter mileage...(example: 6)" required>
 
-    <label for="test_Input">Test Input<span class="required">*</span>:</label>
-    <input type="number" id="test_Input" placeholder="Enter test_Input..." required>
 
     <div id="errorMessages" class="error-message"></div>
 
