@@ -1,5 +1,6 @@
 //Declaring All the fields
 var quantityRequired;
+var drillHolediameter;
 var spacing;
 var burden;
 var depth;
@@ -23,7 +24,6 @@ var tipperCapacity;
 var leadDistance;
 var waitingTime;
 var mileage;
-var test_Input;
 
 function validate() {
     const inputs = document.querySelectorAll('input[type="number"]');
@@ -49,6 +49,10 @@ function validate() {
 function getInputValueandCalculate() {
 
     quantityRequired = document.getElementById('quantityRequired').value;
+    drillHolediameter = document.getElementById('drillHolediameter').value;
+    spacing = document.getElementById('spacing').value;
+    burden = document.getElementById('burden').value;
+    depth = document.getElementById('depth').value;
     spacing = document.getElementById('spacing').value;
     burden = document.getElementById('burden').value;
     depth = document.getElementById('depth').value;
@@ -75,7 +79,6 @@ function getInputValueandCalculate() {
     leadDistance = document.getElementById('leadDistance').value;
     waitingTime = document.getElementById('waitingTime').value;
     mileage = document.getElementById('mileage').value;
-    test_Input = document.getElementById('test_Input').value;
 
     //calculate the Totalcost
     calculateTotalCost();
@@ -90,6 +93,7 @@ function calculateTotalCost()
 {
 
     console.log(quantityRequired);
+    console.log(drillHolediameter);
     console.log(spacing);
     console.log(burden);
     console.log(depth);
@@ -113,57 +117,41 @@ function calculateTotalCost()
     console.log(leadDistance);
     console.log(waitingTime);
     console.log(mileage);
-    console.log("abc"+test_Input);
+    
 
     /*-----------------------Drilling cost and machinery and manpower requirements -----------------------------------------------*/
-
     var noofHoles = quantityRequired/(spacing*burden*depth*specificGravity);//calculate the number of holes required
-
     var totalMeterageRequired = noofHoles * depth; //calculates the total meters required to be drilled
-
     var compressorHoursRequired = totalMeterageRequired / penetration; // provides the hours required to drill the holes
-
     var compressorsRequired = Math.round(compressorHoursRequired / operatingHours); // Number of compressor required
-
     var compressorDieselCost = (compressorHoursRequired * compressorDieselConsumption * dieselRate) * 1.1;
-
     var compressorManpowerCost = compressorsRequired * 6 * 1000;
-
     var compressorMaintenanceCost = compressorDieselCost * 0.2 ;
-
-    var drillingCostperton = Math.round((compressorDieselCost + compressorManpowerCost + compressorMaintenanceCost) / quantityRequired);
+    var drillingCostperton = (compressorDieselCost + compressorManpowerCost + compressorMaintenanceCost) / quantityRequired;
+  
+  
 
 
 /*-----------------------Blasting cost and Explosives and manpower requirements -----------------------------------------------*/
 
 
     var explosivesNeededfor1hole = ((depth*0.75)/0.20)*0.125;
-
     var totalExplosiveNeeded = explosivesNeededfor1hole * noofHoles;
-
     var totalCostforExplosive = totalExplosiveNeeded * rateOfExplosive;
-
-    var explosiveCostPerTon = Math.round(totalCostforExplosive/quantityRequired);
-  
+    var explosiveManpowerneeded = (1250*2);
+    var explosiveCostPerTon = (totalCostforExplosive + explosiveManpowerneeded)/quantityRequired;
 /*-----------------------Blasting cost and ANFO and manpower requirements -----------------------------------------------*/
     var anfoPerHole = (3.142*0.016*0.016*(depth*0.75)-(3.142*0.0125*0.0125*0.2))*800;
     var primeCostperhole = (rateOfExplosive / 8) ;
     var totalAnfoneeded = anfoPerHole * noofHoles;
     var totalCostforAnfo = (totalAnfoneeded * rateOfAnfo) + (primeCostperhole * noofHoles);
-    var AnfoCostPerTon = Math.round(totalCostforAnfo / quantityRequired);
-    
-  
-  
-/*-----------------------Blasting cost and Accessories and manpower requirements -----------------------------------------------*/  
-
+    var AnfoCostPerTon = totalCostforAnfo / quantityRequired; 
+/*-----------------------Blasting cost and Accessories and manpower requirements -----------------------------------------------*/
     var accessoriesRequired = noofHoles * 1.02;
     var totalCostperusnitof3meters = accessoriesCost * 3 ;
     var totalAccessoriescost = (accessoriesRequired * totalCostperusnitof3meters);
-    var accessoriesCostperton = Math.round(totalAccessoriescost / quantityRequired);
-
+    var accessoriesCostperton = totalAccessoriescost / quantityRequired;
   
-  
-
 /*-----------------------Excavator Cost per ton -----------------------------------------------*/
   
   //calculated the cycle time to load 1 tipper
@@ -238,13 +226,18 @@ function calculateTotalCost()
   var tipperMaintenancecost = tipperDieselcost * 0.2;
   var tipperCostperton = (tipperDieselcost+tipperMaintenancecost+tipperManpowercost)/quantityRequired;
   
-    console.log(tipperCostperton);
+  //Sizing Cost
+  var sizingDieselcost = (10*excavatorDieselConsumption*dieselRate);
+  var sizingmaintenancecost = sizingDieselcost * 0.6;
+  var sizingManpowercost = 1250;
+  var sizingCostperton = (sizingDieselcost+sizingmaintenancecost+sizingManpowercost)/quantityRequired;
 
-    var overAllTotalCost = Math.round(drillingCostperton + explosiveCostPerTon + accessoriesCostperton + excavatorCostperton + tipperCostperton ) ; // Replace with your actual calculation result
-
-    var result = overAllTotalCost; 
+    var overAllTotalCost = Math.round(drillingCostperton + explosiveCostPerTon + accessoriesCostperton +sizingCostperton+ excavatorCostperton + tipperCostperton ) ; // Replace with your actual calculation result
+  
+  console.log(overAllTotalCost);
+  
 
     // Redirect to the result page with the result as a parameter in the URL
-    window.location.href = 'result.html?result=' + result;
+    //window.location.href = 'result.html?result=' + result;
 
 }
