@@ -238,6 +238,6 @@ function calculateTotalCost()
   
 
     // Redirect to the result page with the result as a parameter in the URL
-    //window.location.href = 'result.html?result=' + result;
+    window.location.href = 'result.html?result=' + result;
 
 }
