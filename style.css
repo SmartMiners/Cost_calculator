@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+section{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar{
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+    text-align: center;
+}
+
+.logo{
+    width: 10%;
+}
+
+
+/*--------------------------home-----------------------------*/
+
+span{
+    color: orange;
+    font-weight: bold;
+}
+p{
+    font-size: 18px;
+}
+
+
+.bold{
+    font-size: 25px;
+    line-height: 25px;
+    text-align: left;
+}
+
+li{
+    padding: 5px;
+}
+
+.nav-link{
+    font-size: 15px;
+    font-weight: bold;
+    border: 2px solid transparent;
+}
+.nav-link:hover{
+    border-bottom: 2px solid blue;
+    transition: .1s;
+}
+
+/*--------------About------------------*/
+#about img{
+    width: 30rem;
+    height: 20rem;
+    border-radius: 50px;
+}
+
+
+/*---------------Services-----------------*/
+
+.card img{
+    height: 200px;
+    transition: 1s;
+}
+
+.inner{
+    overflow: hidden;
+}
+
+.card img:hover{
+    transform: scale(1.5);
+    transition: 1s;
+}
+
+/*------------------------------Cost Calculator----------------------------------*/
+
+.outwardBox{
+  padding-top:40px;
+  bg-color:yellow;
+}
+  
+
+#inputContainer{
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 20px;
+      width: 475px;
+}
+
+.gettingInput{
+  color: red;
+}
+
+#drillingResults,#blastingResults,#muckingResults,#transportationResults{
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 20px;
+      width: 300px;
+      color: green;
+}
+
+.operation-results {
+    border-left: 1px solid #ccc; /* Example styling for separation */
+    padding-left: 20px; /* Adjust padding as needed */
+}
+
+
+
+
+/*-----------------contact-----------------------*/
+
+form{
+    padding: 40px;
+    box-shadow: 2px 2px 5px rgba(0,0,0.2),-1px -1px 5px rgba(0,0,0.5);
+    border-radius: 30px;
+}
+
+
+/*------------------------footer--------------------------------*/
+
+footer{
+    width: 100%;
+    height: 30px;
+    background: #fff;
+    margin-top: -30px;
+    text-align: center;
+    color: blue;
+    padding: 3px;
+}
