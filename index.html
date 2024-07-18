@@ -1,159 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cost Calculator</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    h1,
-    h3 {
-      font-size: 24px;
-      text-align: center;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .required {
-      color: red;
-    }
-
-    input {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-
-    .error-message {
-      color: red;
-      font-size: 14px;
-    }
-
-    .calculate-button {
-      width: 50%;
-      margin: 0 auto;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      display: block;
-    }
-
-    .calculate-button:hover {
-      background-color: #45a049;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mining Infra</title>
+    <link rel="shortcut icon" type="image/jpeg" href="DFPCL.jfif">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
-
 <body>
-  <div class="container">
-    <h1>Cost Calculator (Beta version* for JH drilling)</h1>
+   <div class="container-fluid col-10">
+    <nav class="navbar navbar-expand-lg" id="navbar">
+            <img src="DFPCL.jfif" alt="logo" class="logo">
+            <!----<b class="bold">Deepak Mining Solutions<br>Private Limited</b>---->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+              </svg></button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#service">Services</a>
+                    </li>
+		    <li class="nav-item">
+                        <a class="nav-link" href="#Cost Calculator">Cost Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-    <label for="quantityRequired">Quantity Required (in Metric Tons)<span class="required">*</span>:</label>
-    <input type="number" id="quantityRequired" placeholder="Enter quantity required...(example: 1500)" required>
-    
-    <label for="drillHolediameter">Drill Hole Diameter(in mm)<span class="required">*</span>:</label>
-    <input type="number" id="drillHolediameter" placeholder="Enter Drill Hole Diameter(example: 32)" required>
+        <!------------------------------------Home---------------------------------------------------------->
+        <section id="home">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12 order-1 pt-5">
+                    <h1 class="display-4">Welcome to<br><span>Deepak Mining Solutions Limited</span></h1>
+                    <p class="my-lg-2 my-3">We, at DMSL, possess phenomenal skills in performing accurate field surveys, operating various professional equipment and tools, developing detailed sketches, and analyzing maps and other documents.</p>
+                    <button class="btn btn-primary my-lg-3 my-3">Get Started</button>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12 py-lg-0 py-3 order-sm-2">
+                    <img src="home1.jpg" class="img-fluid">
+                </div>
+            </div>
+        </section>
 
-    <label for="spacing">Spacing (in Meters)<span class="required">*</span>:</label>
-    <input type="number" id="spacing" placeholder="Enter spacing...(example: 1)" required>
+	 <section id="about">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12 py-lg-0 py-3">
+                                <img src="prakash.jpg" class="img-fluid">
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12 pt-5">
+                                <h6 style="font-size: 50px;">About Us</h6>
+                                <h1 class="display-5"><span>VM Survey</span></h1>
+                                <p>We are one of the best building surveyors, land surveyors, property surveyors, residential surveyors, chartered surveyors, quantity surveyors, government surveyors, and forest river surveyors in the market.</p>
+                                <button class="btn btn-primary my-lg-3 my-3">Services</button>
+                            </div>
+                        </div>
+                    </section>
 
-    <label for="burden">Burden (in Meters)<span class="required">*</span>:</label>
-    <input type="number" id="burden" placeholder="Enter burden...(example: 1)" required>
+                     <!-------------------services--------------------->
 
-    <label for="depth">Depth  (in Meters)<span class="required">*</span>:</label>
-    <input type="number" id="depth" placeholder="Enter depth...(example: 1.8)" required>
+                      <section id="service">
+                        <div class="container m-5">
+                            <h1 class="text-center">OUR SERVICES</h1>
+                            <div class="row">
+                            <div class="col-md-4 my-3">
+                              <div class="card shadow">
+                                    <div class="inner">
+                                        <img src="home.jpg" class="card-img-top">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">Land Dividing</h5>
+                                        <p class="card-text">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui earum rerum sapiente, eius animi officia commodi debitis Dignissimos incidunt
+                                            <a href="#" type="button" class="btn btn-success">Learn More</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
-    <label for="specificGravity">Specific Gravity<span class="required">*</span>:</label>
-    <input type="number" id="specificGravity" placeholder="Enter specific gravity...(example: 2.6)" required>
+                            <div class="col-md-4 my-3">
+                                <div class="card shadow">
+                                      <div class="inner">
+                                          <img src="home.jpg" class="card-img-top">
+                                      </div>
+                                      <div class="card-body">
+                                        <h5 class="card-title text-center">Land Plotting</h5>
+                                          <p class="card-text">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui earum rerum sapiente, eius animi officia commodi debitis Dignissimos incidunt
+                                              <a href="#" type="button" class="btn btn-success">Learn More</a>
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
 
-    <label for="penetration">Penetration Rate  (in Meters per Hour)<span class="required">*</span>:</label>
-    <input type="number" id="penetration" placeholder="Enter penetration...(example: 45)" required>
+                              <div class="col-md-4 my-3">
+                                <div class="card shadow">
+                                      <div class="inner">
+                                          <img src="home.jpg" class="card-img-top">
+                                      </div>
+                                      <div class="card-body">
+                                        <h5 class="card-title text-center">Column Markings</h5>
+                                          <p class="card-text">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui earum rerum sapiente, eius animi officia commodi debitis Dignissimos incidunt
+                                              <a href="#" type="button" class="btn btn-success">Learn More</a>
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
 
-    <label for="rateOfExplosive">Rate of Explosive per kg (in Rs)<span class="required">*</span>:</label>
-    <input type="number" id="rateOfExplosive" placeholder="Enter rate of explosive per kg...(example: 80)" required>
-    
-    <label for="rateOfAnfo">Rate of AN per kg (in Rs)<span class="required">*</span>:</label>
-    <input type="number" id="rateOfAnfo" placeholder="Enter rate of ANFO per kg...(example: 75)" required>
+                            <div class="row">
+                                <div class="col-md-4 my-3">
+                                <div class="card shadow">
+                                    <div class="inner">
+                                        <img src="sur2.gif" class="card-img-top">
+                                    </div>
+                                      <div class="card-body">
+                                        <h5 class="card-title text-center">Building Gridline</h5>
+                                          <p class="card-text">
+                                              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui earum rerum sapiente, eius animi officia commodi debitis Dignissimos incidunt
+                                              <a href="#" type="button" class="btn btn-success">Learn More</a>
+                                          </p>
+                                      </div>
+                                  </div>
+                                </div>
 
-    <label for="accessoriesCost">Accessories Cost per Meter (in Rs)<span class="required">*</span>:</label>
-    <input type="number" id="accessoriesCost" placeholder="Enter accessories cost per meter...(example: 8)" required>
+                                <div class="col-md-4 my-3">
+                                    <div class="card shadow">
+                                        <div class="inner">
+                                            <img src="sur2.gif" class="card-img-top">
+                                        </div>
+                                          <div class="card-body">
+                                            <h5 class="card-title text-center">Piling Points</h5>
+                                              <p class="card-text">
+                                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui earum rerum sapiente, eius animi officia commodi debitis Dignissimos incidunt
+                                                  <a href="#" type="button" class="btn btn-success">Learn More</a>
+                                              </p>
+                                          </div>
+                                      </div>
+                                    </div>
 
-    <label for="compressorDieselConsumption">Compressor Diesel Consumption (Litres per Hour)<span class="required">*</span>:</label>
-    <input type="number" id="compressorDieselConsumption" placeholder="Enter compressor diesel consumption per hour...(example: 14)" required>
+                                    <div class="col-md-4 my-3">
+                                        <div class="card shadow">
+                                            <div class="inner">
+                                                <img src="sur2.gif" class="card-img-top">
+                                            </div>
+                                              <div class="card-body">
+                                                <h5 class="card-title text-center">Topographical Survey</h5>
+                                                  <p class="card-text">
+                                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui earum rerum sapiente, eius animi officia commodi debitis Dignissimos incidunt
+                                                      <a href="#" type="button" class="btn btn-success">Learn More</a>
+                                                  </p>
+                                              </div>
+                                          </div>
+                                        </div>
+                            </div>
 
-    <label for="dieselRate">Rate of Diesel Per Liter (in Rs)<span class="required">*</span>:</label>
-    <input type="number" id="dieselRate" placeholder="Enter rate of diesel per liter in rupees...(example: 95)" required>
+                        </div>
 
-    <label for="crusherCapacity">Crusher Capacity (in TPH)<span class="required">*</span>:</label>
-    <input type="number" id="crusherCapacity" placeholder="Enter crusher capacity...(example: 300)" required>
-
-    <label for="operatingHours">Operating Hours (in Hours)<span class="required">*</span>:</label>
-    <input type="number" id="operatingHours" placeholder="How much hours the operations happen...(example: 6)" required>
-
-    <!-----------------------------------------------EXCAVATOR--------------------------------------------->
-
-    <h3>Excavator</h3>
-    <label for="bucketCapacity">Bucket Capacity (in Cu.M)<span class="required">*</span>:</label>
-    <input type="number" id="bucketCapacity" placeholder="Enter bucket capacity...(example: 2.1)" required>
-
-    <label for="bucketFillFactor">Bucket Fill Factor (in %)<span class="required">*</span>:</label>
-    <input type="number" id="bucketFillFactor" placeholder="Enter bucket fill factor... Example: 80" required>
-
-    <label for="swingTime">Swing Time (in Seconds)<span class="required">*</span>:</label>
-    <input type="number" id="swingTime" placeholder="Enter swing time...(example: 30)" required>
-
-    <label for="backSwingTime">Back Swing Time (in Seconds)<span class="required">*</span>:</label>
-    <input type="number" id="backSwingTime" placeholder="Enter back swing time...(example: 30)" required>
-
-    <label for="excavatorDieselConsumption">Excavator Diesel Consumption Per Hour (in Litres/Hour)<span class="required">*</span>:</label>
-    <input type="number" id="excavatorDieselConsumption" placeholder="Enter excavator diesel consumption...(example: 20)" required>
-
-    <!-----------------------------------------------TIPPER--------------------------------------------->
-
-    <h3>Tipper</h3>
-    <label for="tipperCapacity">Tipper Capacity (in Metric Tons)<span class="required">*</span>:</label>
-    <input type="number" id="tipperCapacity" placeholder="Enter tipper capacity...(example: 25)" required>
-
-    <label for="leadDistance">Lead Distance (in Kms)<span class="required">*</span>:</label>
-    <input type="number" id="leadDistance" placeholder="Enter lead distance...(example: 4)" required>
-
-    <label for="waitingTime">Waiting & Unloading Time(in Minutes)<span class="required">*</span>:</label>
-    <input type="number" id="waitingTime" placeholder="Enter waiting Time and unloading time...(example: 3)" required>
-
-    <label for="mileage">Mileage (in Kms/Litre)<span class="required">*</span>:</label>
-    <input type="number" id="mileage" placeholder="Enter mileage...(example: 6)" required>
+                        
+                        
+                    </section>
 
 
-    <div id="errorMessages" class="error-message"></div>
 
-    <button class="calculate-button" onclick="validate()">Calculate</button>
-  </div>
+<!----------------------------------------------Cost Calculator------------------------------------------------------>
 
-  <script src="script.js"></script>
+
+
+		    <section id="Cost Calculator">
+
+			
+
+			
+				<div class="container"> 
+    					<div class="inwardBox">
+						<form class="gettingInput">
+ 							 <label>
+   								 <input type="radio" name="operation" value="drilling" checked onclick="updateInputFields()">
+   								 Drilling
+ 							 </label>
+ 							 <label>
+    								 <input type="radio" name="operation" value="blasting" onclick="updateInputFields()">
+    								 Blasting
+  							</label>
+  <label>
+  <input type="radio" name="operation" value="mucking" checked onclick="updateInputFields()">
+    Mucking
+  </label>
+  <label>
+    <input type="radio" name="operation" value="transportation" onclick="updateInputFields()">
+    Transportation
+  </label>
+  <br><br>
+
+  <div id="inputContainer"></div>
+</form>
+</div>
+    <div class="outwardBox">
+<!-- Drilling results -->
+<div id="drillingResults" style="display: none;">
+  <p>Drilling Type:<span id="drillingType"></span></p>
+      <p>Number of Holes Required: <span id="holesRequired"></span></p>
+      <p>Total Meterage Required: <span id="totalMeterage"></span></p>
+      <p>Compressor Hours Required: <span id="compressorHoursRequired"></span></p>
+      <p>Compressor Required: <span id="compressorRequired"></span></p>
+      <p>Compressor Diesel Cost: <span id="compressorDieselCost"></span></p>
+      <p>Drilling Manpower Cost: <span id="compressorManpowerCost"></span></p>
+      <p>Drilling Maintenance Cost: <span id="drillingMaintenanceCost"></span></p>
+      <p>Drilling Cost Per Ton: <span id="drillingCostPerTon"></span></p>
+</div>
+
+<!-- Blasting results -->
+ <div id="blastingResults" style="display: none;">
+  <p>Blasting Tons: <span id="result_blast_tons"></span></p>
+  <p>Explosive Required Per Hole: <span id="explosiveRequiredPerHole"></span></p>
+  <p>Total Explosives Required: <span id="totalExplosivesRequired"></span></p>
+  <p>Total Explosives Cost: <span id="totalExplosivesCost"></span></p>
+  <p>Charge Factor: <span id="chargeFactor"></span></p>
+  <p>Explosive Cost Per Ton: <span id="explosivesCostPerTon"></span></p>
+</div>
+  
+<!-- Mucking results -->
+<div id="muckingResults" style="display: none;">
+  <p>Excavator Hours: <span id="excavatorHours"></span></p>
+  <p>Excavator Production Capacity: <span id="excavatorProductionCapacity"></span></p>
+  <p>Excavator Manpower Required: <span id="excavatorManpowerRequired"></span></p>
+  <p>Excavator Manpower Cost: <span id="excavatorManpowerCost"></span></p>
+  <p>Excavator Diesel Cost: <span id="excavatorDieselCost"></span></p>
+  <p>Excavator Maintanence Cost: <span id="excavatorMaintanenceCost"></span></p>
+  <p>Mucking Cost Per Ton: <span id="muckingCostPerTon"></span></p>
+  
+</div>
+  
+  <!-- Transportation results -->
+<div id="transportationResults" style="display: none;">
+  <p>Tippers Required: <span id="tippersRequired"></span></p>
+  <p>Tipper Manpower Cost: <span id="tipperManpowerCost"></span></p>
+  <p>Total Trips: <span id="totalTrips"></span></p>
+  <p>Total KM's: <span id="totalKms"></span></p>
+  <p>Total Diesel Required For Tippers: <span id="tipperDieselRequired"></span></p>
+  <p>Tipper Diesel Cost: <span id="tipperDieselCost"></span></p>
+  <p>Tipper Maintanence Cost: <span id="tipperMaintanenceCost"></span></p>
+  <p>Transportation Cost Per Ton: <span id="transportationCostPerTon"></span></p>
+   
+  
+</div>
+</div>
+  </div>		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		    </section>
+
+                    <!-----------contact-------------->
+
+                    <section id="contact">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <form>
+                                <div class="mb-3 text-center">
+                                    <h3 class="py-lg-1 py-3">CONTACT FORM</h3>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">NAME</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">E-MAIL</label>
+                                    <input type="email" class="form-control">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12 py-lg-2 py-3">
+                                    <button class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+		
+		<footer>Ⓒ Deepak Mining Solutions Limited 2024.</footer>
+	
+
+    </div>
+
+    <!-- External JavaScript libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <!-- Custom script -->
+    <script src="script.js"></script>
 </body>
-
 </html>
