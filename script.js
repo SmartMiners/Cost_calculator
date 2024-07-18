@@ -1,244 +1,317 @@
-//Declaring All the fields
-var quantityRequired;
-var drillHolediameter;
-var spacing;
-var burden;
-var depth;
-var specificGravity;
-var penetration;
-var rateOfExplosive;
-var accessoriesCost;
-var compressorDieselConsumption;
-var dieselRate;
-var crusherCapacity;
+// Add your custom JavaScript code here
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("Custom script loaded successfully!");
+    // Add more custom JavaScript code as needed
+});
 
-//Excavator 
-var bucketCapacity;
-var bucketFillFactor;
-var swingTime;
-var backSwingTime;
-var excavatorDieselConsumption;
 
-//Tipper
-var tipperCapacity;
-var leadDistance;
-var waitingTime;
-var mileage;
+//------------------------------------------------------------------
 
-function validate() {
-    const inputs = document.querySelectorAll('input[type="number"]');
-    const errorMessages = document.getElementById('errorMessages');
-    let allFilled = true;
+function updateInputFields() {
+  const operation = document.querySelector('input[name="operation"]:checked').value;
+  const inputContainer = document.getElementById('inputContainer');
+  inputContainer.innerHTML = '';
 
-    inputs.forEach(input => {
-      if (input.value === '') {
-        allFilled = false;
-        return;
-      }
+  if (operation === 'drilling') {
+    const labels = ['Required Tons', 'Drill Diameter', 'Spacing', 'Burden', 'Hole Depth', 'Specific Gravity','Diesel Cost','Penetration Rate', 'Drilling Hours Available', 'Compressor Diesel Consumption' ];
+    labels.forEach((labelText, i) => {
+      const label = document.createElement('label');
+      label.htmlFor = `textbox${i + 1}`;
+      label.innerText = `${labelText}: `;
+      const inputField = document.createElement('input');
+      inputField.type = 'text';
+      inputField.id = `textbox${i + 1}`;
+      inputField.name = `textbox${i + 1}`;
+      inputField.oninput = updateResult;
+      inputContainer.appendChild(label);
+      inputContainer.appendChild(inputField);
+      inputContainer.appendChild(document.createElement('br'));
+      inputContainer.appendChild(document.createElement('br'));
     });
-
-    if (!allFilled) {
-      errorMessages.textContent = 'Please fill in all fields.';
-    } else {
-      errorMessages.textContent = '';
-      // Perform calculation here
-      alert('All fields are filled! Proceed with calculation.');
-      calculation();
-    }
+    document.getElementById('drillingResults').style.display = 'block';
+    document.getElementById('blastingResults').style.display = 'none';
+    document.getElementById('muckingResults').style.display = 'none';
+    document.getElementById('transportationResults').style.display = 'none';
+  } 
+  else if (operation === 'blasting') {
+    const labels = ['Required Tons', 'Drill Diameter', 'Spacing', 'Burden', 'Hole Depth', 'Specific Gravity','dieselCost', 'Explosives Cost'];
+    labels.forEach((labelText, i) => {
+      const label = document.createElement('label');
+      label.htmlFor = `textbox${i + 1}`;
+      label.innerText = `${labelText}: `;
+      const inputField = document.createElement('input');
+      inputField.type = 'text';
+      inputField.id = `textbox${i + 1}`;
+      inputField.name = `textbox${i + 1}`;
+      inputField.oninput = updateResult;
+      inputContainer.appendChild(label);
+      inputContainer.appendChild(inputField);
+      inputContainer.appendChild(document.createElement('br'));
+      inputContainer.appendChild(document.createElement('br'));
+    });
+    document.getElementById('drillingResults').style.display = 'none';
+    document.getElementById('blastingResults').style.display = 'block';
+    document.getElementById('muckingResults').style.display = 'none';
+    document.getElementById('transportationResults').style.display = 'none';
   }
-function getInputValueandCalculate() {
-
-    quantityRequired = document.getElementById('quantityRequired').value;
-    drillHolediameter = document.getElementById('drillHolediameter').value;
-    spacing = document.getElementById('spacing').value;
-    burden = document.getElementById('burden').value;
-    depth = document.getElementById('depth').value;
-    spacing = document.getElementById('spacing').value;
-    burden = document.getElementById('burden').value;
-    depth = document.getElementById('depth').value;
-    specificGravity = document.getElementById('specificGravity').value;
-    penetration = document.getElementById('penetration').value;
-    rateOfExplosive = document.getElementById('rateOfExplosive').value;
-    rateOfAnfo = document.getElementById('rateOfAnfo').value;
-    accessoriesCost = document.getElementById('accessoriesCost').value;
-    compressorDieselConsumption = document.getElementById('compressorDieselConsumption').value;
-    dieselRate = document.getElementById('dieselRate').value;
-    crusherCapacity = document.getElementById('crusherCapacity').value;
-    operatingHours = document.getElementById('operatingHours').value;
-
-
-    //Excavator 
-    bucketCapacity = document.getElementById('bucketCapacity').value;
-    bucketFillFactor = document.getElementById('bucketFillFactor').value;
-    swingTime = document.getElementById('swingTime').value;
-    backSwingTime = document.getElementById('backSwingTime').value;
-    excavatorDieselConsumption = document.getElementById('excavatorDieselConsumption').value;
-    
-    //Tipper
-    tipperCapacity = document.getElementById('tipperCapacity').value;
-    leadDistance = document.getElementById('leadDistance').value;
-    waitingTime = document.getElementById('waitingTime').value;
-    mileage = document.getElementById('mileage').value;
-
-    //calculate the Totalcost
-    calculateTotalCost();
+  else if (operation === 'mucking') {
+    const labels = ['Required Tons','Specific Gravity','Bucket Capacity', 'Bucket Fill Factor', 'Swing Time', 'Swing Back Time', 'Excavator Diesel Consumption per Hour','Diesel Price Per Liter', 'Tipper Capacity'];
+    labels.forEach((labelText, i) => {
+      const label = document.createElement('label');
+      label.htmlFor = `textbox${i + 1}`;
+      label.innerText = `${labelText}: `;
+      const inputField = document.createElement('input');
+      inputField.type = 'text';
+      inputField.id = `textbox${i + 1}`;
+      inputField.name = `textbox${i + 1}`;
+      inputField.oninput = updateResult;
+      inputContainer.appendChild(label);
+      inputContainer.appendChild(inputField);
+      inputContainer.appendChild(document.createElement('br'));
+      inputContainer.appendChild(document.createElement('br'));
+    });
+    document.getElementById('drillingResults').style.display = 'none';
+    document.getElementById('blastingResults').style.display = 'none';
+    document.getElementById('muckingResults').style.display = 'block';
+    document.getElementById('transportationResults').style.display = 'none';
+  }
+  else if (operation === 'transportation') {
+    const labels = ['Tons To Be Transported','Tipper Capacity', 'Lead Distance','Loading Time For Single Tipper', 'Travel Time', 'Waiting Time', 'Travel Back Time',' Diesel Price','Mileage'];
+    labels.forEach((labelText, i) => {
+      const label = document.createElement('label');
+      label.htmlFor = `textbox${i + 1}`;
+      label.innerText = `${labelText}: `;
+      const inputField = document.createElement('input');
+      inputField.type = 'text';
+      inputField.id = `textbox${i + 1}`;
+      inputField.name = `textbox${i + 1}`;
+      inputField.oninput = updateResult;
+      inputContainer.appendChild(label);
+      inputContainer.appendChild(inputField);
+      inputContainer.appendChild(document.createElement('br'));
+      inputContainer.appendChild(document.createElement('br'));
+    });
+    document.getElementById('drillingResults').style.display = 'none';
+    document.getElementById('blastingResults').style.display = 'none';
+    document.getElementById('muckingResults').style.display = 'none';
+    document.getElementById('transportationResults').style.display = 'block';
+  }
+  updateResult();
 }
 
-function calculation() {
-    getInputValueandCalculate();
+function updateResult() {
+  
+  
+  /*checking the radio boxes is clicked*/
+  const operation = document.querySelector('input[name="operation"]:checked').value;
+   
+  
+  if (operation === 'drilling') {
     
+
+  /*--------------------------------------------------------------------------------------------Drilling calculations-------------------------------------------------------------------------------------------*/
+ 
+  const requiredTons = parseFloat(document.getElementById('textbox1').value) || 0;
+  const drillDiameter = parseFloat(document.getElementById('textbox2').value) || 0;
+  const spacing = parseFloat(document.getElementById('textbox3').value) || 0;
+  const burden = parseFloat(document.getElementById('textbox4').value) || 0;
+  const holeDepth = parseFloat(document.getElementById('textbox5').value) || 0;
+  const specificGravity = parseFloat(document.getElementById('textbox6').value) || 0;
+  const dieselCost = parseFloat(document.getElementById('textbox7').value) || 0;
+  const penetrationRate = parseFloat(document.getElementById('textbox8').value) || 0;
+  const drillingHoursAvailable = parseFloat(document.getElementById('textbox9').value) || 0;
+  const compressorDieselConsumption = parseFloat(document.getElementById('textbox10').value) || 0;
+  
+  
+  
+  var drillingType;
+  var compressorManpowerCost; 
+  if (drillDiameter >= 38)
+  {
+    drillingType = ('Rig Drilling');
+    compressorManpowerCost = compressorRequired * 2 *1000;
+  }
+  else
+    {
+      drillingType = ('Jack Hammer Drilling');
+      compressorManpowerCost = compressorRequired * 6 *1000;
+    }
+  
+  const tons = spacing * burden * holeDepth * specificGravity;
+  const holesRequired = Math.ceil(requiredTons / tons);
+  const totalTons = tons * holesRequired;
+  const totalMeterage = holesRequired * holeDepth;
+  const compressorHoursRequired = totalMeterage / penetrationRate;
+  const compressorRequired1 = compressorHoursRequired / drillingHoursAvailable;
+  var compressorRequired; 
+  if(compressorRequired1 < 1){
+       compressorRequired = 1;
+    }
+    else{
+       compressorRequired = Math.ceil(compressorHoursRequired / drillingHoursAvailable);
+    }
+ //drilling diesel cost------------------------------------------------------------------------------------------
+  const compressorDieselCost = dieselCost * compressorDieselConsumption * compressorHoursRequired * 1.1;
+  
+  var compressorManpowerCost; //drilling manpower cost--------------------------------------------------------------------------------------------
+  if (drillDiameter >= 38)
+  {
+    compressorManpowerCost = compressorRequired * 2 *1000;
+  }
+  else
+    {
+      compressorManpowerCost = compressorRequired * 6 *1000;
+    }
+  
+  const drillingMaintenanceCost = compressorDieselCost * 0.2;//drilling maintainence cost---------------------------------------------------------------------------------------
+  
+  const drillingCostPerTon = (compressorDieselCost + compressorManpowerCost + drillingMaintenanceCost) / totalTons;
+  
+  
+  
+  
+  
+  
+  
+  
+  document.getElementById('drillingType').innerText = drillingType;
+  document.getElementById('holesRequired').innerText = holesRequired;
+  document.getElementById('totalMeterage').innerText = totalMeterage.toFixed(0);
+  document.getElementById('compressorHoursRequired').innerText = compressorHoursRequired.toFixed(0);
+  document.getElementById('compressorRequired').innerText = compressorRequired.toFixed(0);
+  document.getElementById('compressorDieselCost').innerText = compressorDieselCost.toFixed(0);
+  document.getElementById('compressorManpowerCost').innerText = compressorManpowerCost.toFixed(0);
+  document.getElementById('drillingMaintenanceCost').innerText = drillingMaintenanceCost.toFixed(0);
+  document.getElementById('drillingCostPerTon').innerText = drillingCostPerTon.toFixed(0);
+  
+  } 
+  else if (operation === 'blasting') {
+    
+  const requiredTons = parseFloat(document.getElementById('textbox1').value) || 0;
+  const drillDiameter = parseFloat(document.getElementById('textbox2').value) || 0;
+  const spacing = parseFloat(document.getElementById('textbox3').value) || 0;
+  const burden = parseFloat(document.getElementById('textbox4').value) || 0;
+  const holeDepth = parseFloat(document.getElementById('textbox5').value) || 0;
+  const specificGravity = parseFloat(document.getElementById('textbox6').value) || 0;
+  const dieselCost = parseFloat(document.getElementById('textbox7').value) || 0;
+  const explosivesCost = parseFloat(document.getElementById('textbox8').value) || 0;
+    
+  
+    const tons = spacing * burden * holeDepth * specificGravity;
+    const holesRequired = Math.ceil(requiredTons / tons);
+    const totalTons = tons * holesRequired;
+    
+    
+  var explosiveRequiredPerHole;
+  if(drillDiameter >= 38){
+    explosiveRequiredPerHole = ((holeDepth - burden)/0.45) * (2.738);
+  }
+  else{
+    explosiveRequiredPerHole = ((holeDepth - burden)/0.2) * (0.125);
+  }
+  
+  var totalExplosivesRequired = explosiveRequiredPerHole * holesRequired;
+  var totalExplosivesCost = totalExplosivesRequired * explosivesCost;
+  var chargeFactor = totalExplosivesRequired / (spacing * burden * holeDepth * holesRequired);
+  const explosivesCostPerTon = totalExplosivesCost / totalTons;
+  
+  
+  
+  
+  
+  
+  
+  document.getElementById('result_blast_tons').innerText = totalTons.toFixed(0);
+  document.getElementById('explosiveRequiredPerHole').innerText = explosiveRequiredPerHole.toFixed(0);
+  document.getElementById('totalExplosivesRequired').innerText = totalExplosivesRequired;
+  document.getElementById('totalExplosivesCost').innerText = totalExplosivesCost;
+  document.getElementById('chargeFactor').innerText = chargeFactor.toFixed(2);
+  document.getElementById('explosivesCostPerTon').innerText = explosivesCostPerTon.toFixed(0);
+  
+  }
+  else if (operation === 'mucking') {
+     
+     const requiredTons = parseFloat(document.getElementById('textbox1').value) || 0;
+     const specificGravity = parseFloat(document.getElementById('textbox2').value) || 0;
+     const bucketCapacity = parseFloat(document.getElementById('textbox3').value) || 0;
+     const bucketFillFactor = parseFloat(document.getElementById('textbox4').value) || 0;
+     const swingTime = parseFloat(document.getElementById('textbox5').value) || 0;
+     const swingBackTime = parseFloat(document.getElementById('textbox6').value) || 0;
+     const excavatorDieselConsumptionPerHour = parseFloat(document.getElementById('textbox7').value) || 0;
+     const dieselPricePerLiter = parseFloat(document.getElementById('textbox8').value) || 0;
+     const tipperCapacity = parseFloat(document.getElementById('textbox9').value) || 0;
+     
+    
+  
+    
+    const cycleTimeToLoad1Tipper = Math.ceil(((tipperCapacity/specificGravity)/(bucketCapacity*(bucketFillFactor/100))*((swingTime/60)+(swingBackTime/60)))*1.5);
+    const excavatorHours = requiredTons/((60/cycleTimeToLoad1Tipper)*tipperCapacity);
+    const excavatorProductionCapacity = (60/cycleTimeToLoad1Tipper)*tipperCapacity;
+    const excavatorManpowerRequired = Math.ceil(excavatorHours/8);
+    const excavatorManpowerCost = excavatorManpowerRequired * 1250;
+    const excavatorDieselCost = excavatorHours * excavatorDieselConsumptionPerHour*dieselPricePerLiter*1.05;
+    const excavatorMaintanenceCost = excavatorDieselCost * 0.1;
+    const muckingCostPerTon = (excavatorManpowerCost + excavatorDieselCost + excavatorMaintanenceCost) / requiredTons;
+   
+    
+  
+  
+  
+  
+  
+    document.getElementById('excavatorHours').innerText = excavatorHours.toFixed(0);
+    document.getElementById('excavatorProductionCapacity').innerText = excavatorProductionCapacity.toFixed(0);
+    document.getElementById('excavatorManpowerRequired').innerText = excavatorManpowerRequired.toFixed(0);
+    document.getElementById('excavatorManpowerCost').innerText = excavatorManpowerCost.toFixed(0);
+    document.getElementById('excavatorDieselCost').innerText = excavatorDieselCost.toFixed(0);
+    document.getElementById('excavatorMaintanenceCost').innerText = excavatorMaintanenceCost.toFixed(0);
+    document.getElementById('muckingCostPerTon').innerText = muckingCostPerTon.toFixed(0);
+  
+  
+  }
+  else if (operation === 'transportation') {
+     
+     const tonsToBeTransported = parseFloat(document.getElementById('textbox1').value) || 0;
+     const tipperCapacity = parseFloat(document.getElementById('textbox2').value) || 0;
+     const leadDistance = parseFloat(document.getElementById('textbox3').value) || 0;
+     const loadingTimeOfSingleTipper = parseFloat(document.getElementById('textbox4').value) || 0;
+     const travelTime = parseFloat(document.getElementById('textbox5').value) || 0;
+     const waitingTime = parseFloat(document.getElementById('textbox6').value) || 0;
+     const travelBackTime = parseFloat(document.getElementById('textbox7').value) || 0; 
+     const dieselCost = parseFloat(document.getElementById('textbox8').value) || 0;  
+     const tipperMileage = parseFloat(document.getElementById('textbox9').value) || 0;
+
+     
+     const totalTimeForSingleTrip = travelTime + waitingTime + travelBackTime;
+     const tippersRequired = Math.ceil(totalTimeForSingleTrip/loadingTimeOfSingleTipper);
+     const tipperManpowerCost = tippersRequired * 1250;
+     const totalTrips = tonsToBeTransported/tipperCapacity;
+     const totalKms = totalTrips * leadDistance * 2 * 1.2;
+     const tipperDieselRequired = (totalKms/tipperMileage);
+     const tipperDieselCost = tipperDieselRequired * dieselCost;
+     const tipperMaintanenceCost = tipperDieselCost * 0.1;
+     const transportationCostPerTon = (tipperManpowerCost + tipperDieselCost + tipperMaintanenceCost)/tonsToBeTransported;
+   
+    
+  
+  
+  
+  
+  
+    document.getElementById('tippersRequired').innerText = tippersRequired.toFixed(0);
+    document.getElementById('tipperManpowerCost').innerText = tipperManpowerCost.toFixed(0);
+    document.getElementById('totalTrips').innerText = totalTrips.toFixed(0);
+    document.getElementById('totalKms').innerText = totalKms.toFixed(0);
+    document.getElementById('tipperDieselRequired').innerText = tipperDieselRequired.toFixed(0);
+    document.getElementById('tipperDieselCost').innerText = tipperDieselCost.toFixed(0);
+    document.getElementById('tipperMaintanenceCost').innerText = tipperMaintanenceCost.toFixed(0);
+    document.getElementById('transportationCostPerTon').innerText = transportationCostPerTon.toFixed(0);
+    
+  
+  
+  }
 }
 
-function calculateTotalCost()
-{
-
-    console.log(quantityRequired);
-    console.log(drillHolediameter);
-    console.log(spacing);
-    console.log(burden);
-    console.log(depth);
-    console.log(specificGravity);
-    console.log(penetration);
-    console.log(rateOfExplosive);
-    console.log(rateOfAnfo);
-    console.log(accessoriesCost);
-    console.log(compressorDieselConsumption);
-    console.log(dieselRate);
-    console.log(crusherCapacity);
-    console.log(operatingHours);
-    console.log("");
-    console.log(bucketCapacity);
-    console.log(bucketFillFactor);
-    console.log(swingTime);
-    console.log(backSwingTime);
-    console.log(excavatorDieselConsumption);
-    console.log("");
-    console.log(tipperCapacity);
-    console.log(leadDistance);
-    console.log(waitingTime);
-    console.log(mileage);
-    
-
-    /*-----------------------Drilling cost and machinery and manpower requirements -----------------------------------------------*/
-    var noofHoles = quantityRequired/(spacing*burden*depth*specificGravity);//calculate the number of holes required
-    var totalMeterageRequired = noofHoles * depth; //calculates the total meters required to be drilled
-    var compressorHoursRequired = totalMeterageRequired / penetration; // provides the hours required to drill the holes
-    var compressorsRequired = Math.round(compressorHoursRequired / operatingHours); // Number of compressor required
-    var compressorDieselCost = (compressorHoursRequired * compressorDieselConsumption * dieselRate) * 1.1;
-    var compressorManpowerCost = compressorsRequired * 6 * 1000;
-    var compressorMaintenanceCost = compressorDieselCost * 0.2 ;
-    var drillingCostperton = (compressorDieselCost + compressorManpowerCost + compressorMaintenanceCost) / quantityRequired;
-  
-  
-
-
-/*-----------------------Blasting cost and Explosives and manpower requirements -----------------------------------------------*/
-
-
-    var explosivesNeededfor1hole = ((depth*0.75)/0.20)*0.125;
-    var totalExplosiveNeeded = explosivesNeededfor1hole * noofHoles;
-    var totalCostforExplosive = totalExplosiveNeeded * rateOfExplosive;
-    var explosiveManpowerneeded = (1250*2);
-    var explosiveCostPerTon = (totalCostforExplosive + explosiveManpowerneeded)/quantityRequired;
-/*-----------------------Blasting cost and ANFO and manpower requirements -----------------------------------------------*/
-    var anfoPerHole = (3.142*0.016*0.016*(depth*0.75)-(3.142*0.0125*0.0125*0.2))*800;
-    var primeCostperhole = (rateOfExplosive / 8) ;
-    var totalAnfoneeded = anfoPerHole * noofHoles;
-    var totalCostforAnfo = (totalAnfoneeded * rateOfAnfo) + (primeCostperhole * noofHoles);
-    var AnfoCostPerTon = totalCostforAnfo / quantityRequired; 
-/*-----------------------Blasting cost and Accessories and manpower requirements -----------------------------------------------*/
-    var accessoriesRequired = noofHoles * 1.02;
-    var totalCostperusnitof3meters = accessoriesCost * 3 ;
-    var totalAccessoriescost = (accessoriesRequired * totalCostperusnitof3meters);
-    var accessoriesCostperton = totalAccessoriescost / quantityRequired;
-  
-/*-----------------------Excavator Cost per ton -----------------------------------------------*/
-  
-  //calculated the cycle time to load 1 tipper
-    var cycleTimetoload1tippertemp1 = (tipperCapacity/specificGravity);
-    var cycleTimetoload1tippertemp2 = (bucketCapacity * (bucketFillFactor/100));
-    var cycleTimetoload1tippertemp3 = cycleTimetoload1tippertemp1/cycleTimetoload1tippertemp2;
-    var cycleTimetoload1tippertemp4 = ((swingTime/60) + (backSwingTime/60))*1.5;
-    var cycleTimetoload1tipper = Math.round((cycleTimetoload1tippertemp3 * cycleTimetoload1tippertemp4));
-  
-  //calculate Excavator production capacity
-    var singleExcavatorProductioncapacity = Math.round((60/cycleTimetoload1tipper)*tipperCapacity);
-  
-  //calculate delivery at 80% efficiency
-  
-    var deliveryefficiency = crusherCapacity * (80/100);
-  
-  //calculate excavators required
-    var excavatorrequired = Math.ceil(deliveryefficiency/singleExcavatorProductioncapacity);
-  
-  //calculate excavator production capacity required
-    var excavatorProductioncapacity = Math.floor(excavatorrequired * singleExcavatorProductioncapacity);
-  
-  //manpower required
-    var condition1 = quantityRequired/excavatorProductioncapacity;
-    var excavatorManpowerrequired;
-    if (condition1<operatingHours)
-      {
-        excavatorManpowerrequired = excavatorrequired;
-      }
-    else
-      {
-        excavatorManpowerrequired = excavatorrequired*2;
-      }
-    
-  //calculate excavator manpower cost
-    var excavatorManpowercost = excavatorManpowerrequired * 1250;
-  
-  //Number of trips required
-    var numberOftripsrequiredperhour = (deliveryefficiency/tipperCapacity);
-  //total number of trips needed
-    var totalNumberoftripsneeded = Math.round(quantityRequired / tipperCapacity);
-  //hours required to deliver
-    var hoursRequiredtodeliver = totalNumberoftripsneeded/numberOftripsrequiredperhour;
-  
-  //calculate excavator diesel cost
-    var excavatorDieselcost = (hoursRequiredtodeliver*excavatorrequired*excavatorDieselConsumption*dieselRate);
-  
-  //calculate excavator maintenance cost
-    var excavatormaintenancecost = excavatorDieselcost*0.1;
-  
-  var excavatorCost = excavatorManpowercost + excavatorDieselcost + excavatormaintenancecost;
-  var excavatorCostperton = excavatorCost/quantityRequired;
-  
-
-/*-----------------------Tipper Cost per ton -----------------------------------------------*/
-  
-  //total time for a single trip
-  var travelAndbacktime = ((leadDistance/(25/60))*2*1.25);
-  var totalTimefor1trip = travelAndbacktime+(waitingTime*1);
-  
-  //Tippers needed for 1 excavator
-  var tippersNeededfor1excavator = Math.ceil(totalTimefor1trip/cycleTimetoload1tipper);
-  //Tippers Required
-  var tippersrequired = tippersNeededfor1excavator * excavatorrequired;
-  
-  //Tipper Manpower Cost
-  var tipperManpowercost = tippersrequired * 1250;
-  var totaltrips = totalNumberoftripsneeded;
-  var totalkm = totaltrips*leadDistance*2*1.2;
-  var tipperDieselrequired = totalkm / mileage;
-  var tipperDieselcost = tipperDieselrequired * dieselRate;
-  var tipperMaintenancecost = tipperDieselcost * 0.2;
-  var tipperCostperton = (tipperDieselcost+tipperMaintenancecost+tipperManpowercost)/quantityRequired;
-  
-  //Sizing Cost
-  var sizingDieselcost = (10*excavatorDieselConsumption*dieselRate);
-  var sizingmaintenancecost = sizingDieselcost * 0.6;
-  var sizingManpowercost = 1250;
-  var sizingCostperton = (sizingDieselcost+sizingmaintenancecost+sizingManpowercost)/quantityRequired;
-
-    var overAllTotalCost = Math.round(drillingCostperton + explosiveCostPerTon + accessoriesCostperton +sizingCostperton+ excavatorCostperton + tipperCostperton ) ; // Replace with your actual calculation result
-  
-  console.log(overAllTotalCost);
-
-    var result = overAllTotalCost;
-
-    // Redirect to the result page with the result as a parameter in the URL
-    window.location.href = 'result.html?result=' + result;
-
+window.onload = function() {
+  updateInputFields();
 }
