@@ -52,7 +52,7 @@
             </div>
         </section>
 
-	 <section id="about">
+	     <section id="about">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12 py-lg-0 py-3">
                                 <img src="prakash.jpg" class="img-fluid">
@@ -178,13 +178,12 @@
 
 
 		    <section id="Cost Calculator">
-
-			
-
-			
-				<div class="container"> 
-    					<div class="inwardBox">
-						<form class="gettingInput">
+				     <div class="container m-5">
+               <h1 class="text-center">COST CALCULATOR</h1>
+               <div class="row">
+                    <div class="col-md-6 my-2">
+                          <div class="card shadow">
+						      <form>      
  							 <label>
    								 <input type="radio" name="operation" value="drilling" checked onclick="updateInputFields()">
    								 Drilling
@@ -205,10 +204,13 @@
 
   <div id="inputContainer"></div>
 </form>
-</div>
-    <div class="outwardBox">
-<!-- Drilling results -->
-<div id="drillingResults" style="display: none;">
+                   </div>
+                    </div>
+                    <div class="col-md-6 my-2">
+                          <div class="card shadow">
+                            <form>
+                                <!-- Drilling results -->
+                                    <div id="drillingResults" style="display: none;">
   <p>Drilling Type:<span id="drillingType"></span></p>
       <p>Number of Holes Required: <span id="holesRequired"></span></p>
       <p>Total Meterage Required: <span id="totalMeterage"></span></p>
@@ -220,8 +222,8 @@
       <p>Drilling Cost Per Ton: <span id="drillingCostPerTon"></span></p>
 </div>
 
-<!-- Blasting results -->
- <div id="blastingResults" style="display: none;">
+                                <!-- Blasting results -->
+                                     <div id="blastingResults" style="display: none;">
   <p>Blasting Tons: <span id="result_blast_tons"></span></p>
   <p>Explosive Required Per Hole: <span id="explosiveRequiredPerHole"></span></p>
   <p>Total Explosives Required: <span id="totalExplosivesRequired"></span></p>
@@ -230,8 +232,8 @@
   <p>Explosive Cost Per Ton: <span id="explosivesCostPerTon"></span></p>
 </div>
   
-<!-- Mucking results -->
-<div id="muckingResults" style="display: none;">
+                                <!-- Mucking results -->
+                                     <div id="muckingResults" style="display: none;">
   <p>Excavator Hours: <span id="excavatorHours"></span></p>
   <p>Excavator Production Capacity: <span id="excavatorProductionCapacity"></span></p>
   <p>Excavator Manpower Required: <span id="excavatorManpowerRequired"></span></p>
@@ -242,8 +244,8 @@
   
 </div>
   
-  <!-- Transportation results -->
-<div id="transportationResults" style="display: none;">
+                                <!-- Transportation results -->
+                                      <div id="transportationResults" style="display: none;">
   <p>Tippers Required: <span id="tippersRequired"></span></p>
   <p>Tipper Manpower Cost: <span id="tipperManpowerCost"></span></p>
   <p>Total Trips: <span id="totalTrips"></span></p>
@@ -253,24 +255,12 @@
   <p>Tipper Maintanence Cost: <span id="tipperMaintanenceCost"></span></p>
   <p>Transportation Cost Per Ton: <span id="transportationCostPerTon"></span></p>
    
-  
-</div>
-</div>
-  </div>		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div> 
+                            </form>
+                    </div>
+                    </div>
+               </div>
+             </div>
 		    </section>
 
                     <!-----------contact-------------->
