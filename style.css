@@ -83,41 +83,6 @@ li{
     transition: 1s;
 }
 
-/*------------------------------Cost Calculator----------------------------------*/
-
-.outwardBox{
-  padding-top:40px;
-  bg-color:yellow;
-}
-  
-
-#inputContainer{
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin: 20px;
-      width: 475px;
-}
-
-.gettingInput{
-  color: red;
-}
-
-#drillingResults,#blastingResults,#muckingResults,#transportationResults{
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin: 20px;
-      width: 300px;
-      color: green;
-}
-
-.operation-results {
-    border-left: 1px solid #ccc; /* Example styling for separation */
-    padding-left: 20px; /* Adjust padding as needed */
-}
-
-
 
 
 /*-----------------contact-----------------------*/
