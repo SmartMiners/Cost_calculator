@@ -13,7 +13,7 @@
    <div class="container-fluid col-10">
     <nav class="navbar navbar-expand-lg" id="navbar">
             <img src="DFPCL.jfif" alt="logo" class="logo">
-            <!----<b class="bold">Deepak Mining Solutions<br>Private Limited</b>---->
+<!--             <b class="bold">Deepak Mining Solutions<br>Private Limited</b> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
               </svg></button>
@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-12 pt-5">
                                 <h6 style="font-size: 50px;">About Us</h6>
-                                <h1 class="display-5"><span>VM Survey</span></h1>
+                                <h1 class="display-5"><span>DMSL</span></h1>
                                 <p>We are one of the best building surveyors, land surveyors, property surveyors, residential surveyors, chartered surveyors, quantity surveyors, government surveyors, and forest river surveyors in the market.</p>
                                 <button class="btn btn-primary my-lg-3 my-3">Services</button>
                             </div>
@@ -78,7 +78,7 @@
                                         <img src="home.jpg" class="card-img-top">
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title text-center">Land Dividing</h5>
+                                        <h5 class="card-title text-center">Drilling Optimization</h5>
                                         <p class="card-text">
                                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui earum rerum sapiente, eius animi officia commodi debitis Dignissimos incidunt
                                             <a href="#" type="button" class="btn btn-success">Learn More</a>
@@ -93,7 +93,7 @@
                                           <img src="home.jpg" class="card-img-top">
                                       </div>
                                       <div class="card-body">
-                                        <h5 class="card-title text-center">Land Plotting</h5>
+                                        <h5 class="card-title text-center">Blasting Optimization</h5>
                                           <p class="card-text">
                                               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui earum rerum sapiente, eius animi officia commodi debitis Dignissimos incidunt
                                               <a href="#" type="button" class="btn btn-success">Learn More</a>
@@ -108,7 +108,7 @@
                                           <img src="home.jpg" class="card-img-top">
                                       </div>
                                       <div class="card-body">
-                                        <h5 class="card-title text-center">Column Markings</h5>
+                                        <h5 class="card-title text-center">Ground Vibration Monitoring</h5>
                                           <p class="card-text">
                                               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui earum rerum sapiente, eius animi officia commodi debitis Dignissimos incidunt
                                               <a href="#" type="button" class="btn btn-success">Learn More</a>
@@ -178,11 +178,12 @@
 
 
 		    <section id="Cost Calculator">
+          
 				     <div class="container m-5">
                <h1 class="text-center">COST CALCULATOR</h1>
                <div class="row">
                     <div class="col-md-6 my-2">
-                          <div class="card shadow">
+                       <div class="card shadow">
 						      <form>      
  							 <label>
    								 <input type="radio" name="operation" value="drilling" checked onclick="updateInputFields()">
@@ -204,8 +205,8 @@
 
   <div id="inputContainer"></div>
 </form>
-                   </div>
-                    </div>
+                   </div>    
+                    </div> <!-- getting input for radio buttons-->
                     <div class="col-md-6 my-2">
                           <div class="card shadow">
                             <form>
@@ -230,19 +231,21 @@
   <p>Total Explosives Cost: <span id="totalExplosivesCost"></span></p>
   <p>Charge Factor: <span id="chargeFactor"></span></p>
   <p>Explosive Cost Per Ton: <span id="explosivesCostPerTon"></span></p>
-</div>
+  <p>Kuznetsov Size Prediction: <span id="kuznetsovEquation"></span>MM</p>
+  
+</div>                           
   
                                 <!-- Mucking results -->
                                      <div id="muckingResults" style="display: none;">
-  <p>Excavator Hours: <span id="excavatorHours"></span></p>
-  <p>Excavator Production Capacity: <span id="excavatorProductionCapacity"></span></p>
-  <p>Excavator Manpower Required: <span id="excavatorManpowerRequired"></span></p>
-  <p>Excavator Manpower Cost: <span id="excavatorManpowerCost"></span></p>
-  <p>Excavator Diesel Cost: <span id="excavatorDieselCost"></span></p>
-  <p>Excavator Maintanence Cost: <span id="excavatorMaintanenceCost"></span></p>
-  <p>Mucking Cost Per Ton: <span id="muckingCostPerTon"></span></p>
+                                        <p>Excavator Hours: <span id="excavatorHours"></span></p>
+                                        <p>Excavator Production Capacity: <span id="excavatorProductionCapacity"></span></p>
+                                        <p>Excavator Manpower Required: <span id="excavatorManpowerRequired"></span></p>
+                                        <p>Excavator Manpower Cost: <span id="excavatorManpowerCost"></span></p>
+                                        <p>Excavator Diesel Cost: <span id="excavatorDieselCost"></span></p>
+                                        <p>Excavator Maintanence Cost: <span id="excavatorMaintanenceCost"></span></p>
+                                        <p>Mucking Cost Per Ton: <span id="muckingCostPerTon"></span></p>
   
-</div>
+                                      </div>
   
                                 <!-- Transportation results -->
                                       <div id="transportationResults" style="display: none;">
@@ -256,9 +259,10 @@
   <p>Transportation Cost Per Ton: <span id="transportationCostPerTon"></span></p>
    
 </div> 
-                            </form>
+                            </form>    
                     </div>
-                    </div>
+                          
+                    </div> <!-- display result -->
                </div>
              </div>
 		    </section>
