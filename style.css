@@ -105,3 +105,11 @@ footer{
     color: blue;
     padding: 3px;
 }
+
+
+/*------------------------cost Calculator--------------------------------*/
+
+#drillingResults,#blastingResults,#muckingResults,#transportationResults{
+  color: green;
+}
+
