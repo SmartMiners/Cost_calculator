@@ -34,7 +34,7 @@ function updateInputFields() {
     document.getElementById('transportationResults').style.display = 'none';
   } 
   else if (operation === 'blasting') {
-    const labels = ['Required Tons', 'Drill Diameter', 'Spacing', 'Burden', 'Hole Depth', 'Specific Gravity','dieselCost', 'Explosives Cost'];
+    const labels = ['Required Tons', 'Drill Diameter', 'Spacing', 'Burden', 'Hole Depth', 'Specific Gravity','Diesel Price', 'Explosives Price', 'RWS of Explosive'];
     labels.forEach((labelText, i) => {
       const label = document.createElement('label');
       label.htmlFor = `textbox${i + 1}`;
@@ -195,6 +195,7 @@ function updateResult() {
   const specificGravity = parseFloat(document.getElementById('textbox6').value) || 0;
   const dieselCost = parseFloat(document.getElementById('textbox7').value) || 0;
   const explosivesCost = parseFloat(document.getElementById('textbox8').value) || 0;
+  var rws = parseFloat(document.getElementById('textbox9').value) || 0;
     
   
     const tons = spacing * burden * holeDepth * specificGravity;
@@ -215,18 +216,22 @@ function updateResult() {
   var chargeFactor = totalExplosivesRequired / (spacing * burden * holeDepth * holesRequired);
   const explosivesCostPerTon = totalExplosivesCost / totalTons;
   
+  var temp1 = (Math.pow((chargeFactor), (-0.8)));
+  var temp2 = (Math.pow((explosiveRequiredPerHole), (0.16666)));
+  var temp3 = (Math.pow((115/rws), (0.95)));
+    
+    var kuznetsovEquation = ((22 * temp1 * temp2 * temp3 )*10);
   
-  
-  
-  
+ 
   
   
   document.getElementById('result_blast_tons').innerText = totalTons.toFixed(0);
-  document.getElementById('explosiveRequiredPerHole').innerText = explosiveRequiredPerHole.toFixed(0);
+  document.getElementById('explosiveRequiredPerHole').innerText = explosiveRequiredPerHole.toFixed(3);
   document.getElementById('totalExplosivesRequired').innerText = totalExplosivesRequired;
   document.getElementById('totalExplosivesCost').innerText = totalExplosivesCost;
   document.getElementById('chargeFactor').innerText = chargeFactor.toFixed(2);
   document.getElementById('explosivesCostPerTon').innerText = explosivesCostPerTon.toFixed(0);
+  document.getElementById('kuznetsovEquation').innerText = kuznetsovEquation.toFixed(0);
   
   }
   else if (operation === 'mucking') {
