@@ -228,7 +228,7 @@ function updateResult() {
   document.getElementById('result_blast_tons').innerText = totalTons.toFixed(0);
   document.getElementById('explosiveRequiredPerHole').innerText = explosiveRequiredPerHole.toFixed(3);
   document.getElementById('totalExplosivesRequired').innerText = totalExplosivesRequired.toFixed(2);
-  document.getElementById('totalExplosivesCost').innerText = totalExplosivesCost;
+  document.getElementById('totalExplosivesCost').innerText = totalExplosivesCost.toFixed(0);
   document.getElementById('chargeFactor').innerText = chargeFactor.toFixed(2);
   document.getElementById('explosivesCostPerTon').innerText = explosivesCostPerTon.toFixed(0);
   document.getElementById('kuznetsovEquation').innerText = kuznetsovEquation.toFixed(0);
