@@ -13,7 +13,7 @@ function updateInputFields() {
   inputContainer.innerHTML = '';
 
   if (operation === 'drilling') {
-    const labels = ['Required Tons', 'Drill Diameter', 'Spacing', 'Burden', 'Hole Depth', 'Specific Gravity','Diesel Cost','Penetration Rate', 'Drilling Hours Available', 'Compressor Diesel Consumption' ];
+    const labels = ['Required Tons (Tons)', 'Drill Diameter(mm)', 'Spacing(meter)', 'Burden(meter)', 'Hole Depth(meter)', 'Specific Gravity','Diesel Price(liter)','Penetration Rate(meter/hour)', 'Drilling Hours Available(shift)', 'Compressor Diesel Consumption(litres/hour)'];
     labels.forEach((labelText, i) => {
       const label = document.createElement('label');
       label.htmlFor = `textbox${i + 1}`;
@@ -34,7 +34,7 @@ function updateInputFields() {
     document.getElementById('transportationResults').style.display = 'none';
   } 
   else if (operation === 'blasting') {
-    const labels = ['Required Tons', 'Drill Diameter', 'Spacing', 'Burden', 'Hole Depth', 'Specific Gravity','Diesel Price', 'Explosives Price', 'RWS of Explosive'];
+    const labels = ['Required Tons(Tons)', 'Drill Diameter(mm)', 'Spacing(meter)', 'Burden(meter)', 'Hole Depth(meter)', 'Specific Gravity','Diesel Price(per Liter)', 'Explosives Price(per Kg)', 'RWS of Explosive'];
     labels.forEach((labelText, i) => {
       const label = document.createElement('label');
       label.htmlFor = `textbox${i + 1}`;
@@ -55,7 +55,7 @@ function updateInputFields() {
     document.getElementById('transportationResults').style.display = 'none';
   }
   else if (operation === 'mucking') {
-    const labels = ['Required Tons','Specific Gravity','Bucket Capacity', 'Bucket Fill Factor', 'Swing Time', 'Swing Back Time', 'Excavator Diesel Consumption per Hour','Diesel Price Per Liter', 'Tipper Capacity'];
+    const labels = ['Required Tons (Tons)','Specific Gravity','Bucket Capacity(Cu.M)', 'Bucket Fill Factor(%)', 'Swing Time(seconds)', 'Swing Back Time(seconds)', 'Excavator Diesel Consumption(liter/Hour)','Diesel Price (Per Liter)', 'Tipper Capacity(Tons)'];
     labels.forEach((labelText, i) => {
       const label = document.createElement('label');
       label.htmlFor = `textbox${i + 1}`;
@@ -76,7 +76,7 @@ function updateInputFields() {
     document.getElementById('transportationResults').style.display = 'none';
   }
   else if (operation === 'transportation') {
-    const labels = ['Tons To Be Transported','Tipper Capacity', 'Lead Distance','Loading Time For Single Tipper', 'Travel Time', 'Waiting Time', 'Travel Back Time',' Diesel Price','Mileage'];
+    const labels = ['Tons To Be Transported','Tipper Capacity(Tons)', 'Lead Distance(Km)','Loading Time For Single Tipper(minutes)', 'Travel Time(minutes)', 'Waiting Time(minutes)', 'Travel Back Time(minutes)',' Diesel Price(per Litre)','Mileage(Km/ Litre)'];
     labels.forEach((labelText, i) => {
       const label = document.createElement('label');
       label.htmlFor = `textbox${i + 1}`;
@@ -227,7 +227,7 @@ function updateResult() {
   
   document.getElementById('result_blast_tons').innerText = totalTons.toFixed(0);
   document.getElementById('explosiveRequiredPerHole').innerText = explosiveRequiredPerHole.toFixed(3);
-  document.getElementById('totalExplosivesRequired').innerText = totalExplosivesRequired;
+  document.getElementById('totalExplosivesRequired').innerText = totalExplosivesRequired.toFixed(2);
   document.getElementById('totalExplosivesCost').innerText = totalExplosivesCost;
   document.getElementById('chargeFactor').innerText = chargeFactor.toFixed(2);
   document.getElementById('explosivesCostPerTon').innerText = explosivesCostPerTon.toFixed(0);
