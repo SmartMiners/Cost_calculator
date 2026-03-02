@@ -4,8 +4,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add more custom JavaScript code as needed
 });
 
+//-----------------------------Service page learmore button expanding-------------------------------------
 
-//------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.querySelector(".learn-more-btn");
+  const description = document.querySelector(".description");
+
+  if (!btn || !description) return;
+
+  btn.addEventListener("click", function () {
+    description.classList.toggle("expanded");
+    btn.textContent = description.classList.contains("expanded")
+      ? "Show Less"
+      : "Learn More";
+  });
+});
+
+//-----------------------------login ku ---------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+  const authBtn = document.getElementById("authBtn");
+  const authModal = new bootstrap.Modal(document.getElementById("authModal"));
+
+  authBtn.addEventListener("click", function () {
+    authModal.show();
+  });
+});
+
+
+//-----------------------------calculator ku---------------------------
+
 
 function updateInputFields() {
   const operation = document.querySelector('input[name="operation"]:checked').value;
