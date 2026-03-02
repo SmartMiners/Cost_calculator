@@ -197,11 +197,148 @@ googleBtn.addEventListener("click", async () => {
 
 
 
+// ===== Contact Form Google Forms Submission =====
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSerqtdcdIDH4fNTwuPKz-2eXqk1_oU3eZHNs7V8B2xAaCnTRg/formResponse";
+
+    const formData = new FormData();
+    formData.append("entry.1184599950", name);
+    formData.append("entry.11854000", email);
+    formData.append("entry.1178137936", message);
+
+    fetch(formURL, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    })
+    .then(() => {
+      alert("Message sent successfully!");
+      contactForm.reset();
+    })
+    .catch(() => {
+      alert("Something went wrong. Please try again.");
+    });
+  });
+}
 
 
 
 
 
+
+// ===== Smart Get Started Button =====
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const getStartedBtn = document.getElementById("getStartedBtn");
+
+  if (!getStartedBtn) return;
+
+  getStartedBtn.addEventListener("click", () => {
+
+    const user = firebaseAuth.currentUser;
+
+    if (!user || !user.emailVerified){
+      // Not logged in → open modal
+      const authModal = new bootstrap.Modal(document.getElementById("authModal"));
+      authModal.show();
+    } else {
+      // Logged in → scroll to calculator
+      document.getElementById("Cost Calculator")
+        .scrollIntoView({ behavior: "smooth" });
+    }
+
+  });
+
+});
+
+
+
+
+
+// ===== Try Calculator Button Logic =====
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const tryBtn = document.getElementById("tryCalculatorBtn");
+
+  if (!tryBtn) return;
+
+  tryBtn.addEventListener("click", () => {
+
+    const user = firebaseAuth.currentUser;
+
+    if (!user) {
+      // Not logged in → open modal
+      const authModal = new bootstrap.Modal(document.getElementById("authModal"));
+      authModal.show();
+    } else {
+      // Logged in → redirect to calculator page
+      window.location.href = "calculator.html";
+    }
+
+  });
+
+});
+
+
+
+
+
+// ===== Protect Calculator Page =====
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  if (window.location.pathname.includes("calculator.html")) {
+
+    const user = firebaseAuth.currentUser;
+
+    if (!user) {
+      alert("Please login to access the Cost Calculator.");
+      window.location.href = "index.html";
+    }
+
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", async () => {
+        await firebaseAuth.signOut();
+        window.location.href = "index.html";
+      });
+    }
+
+  }
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
 
 
 
