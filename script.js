@@ -20,16 +20,164 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//-----------------------------login ku ---------------------------
 
-document.addEventListener("DOMContentLoaded", function () {
-  const authBtn = document.getElementById("authBtn");
-  const authModal = new bootstrap.Modal(document.getElementById("authModal"));
+//----------------------------- login kuuu---------------------------
 
-  authBtn.addEventListener("click", function () {
-    authModal.show();
+
+ 
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+        import { 
+  getAuth, 
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyDATlIuwLAJ_VrBpf5V8IjOAfDOoArc8_w",
+          authDomain: "proptimiz-autho.firebaseapp.com",
+          projectId: "proptimiz-autho",
+          storageBucket: "proptimiz-autho.firebasestorage.app",
+          messagingSenderId: "219467471900",
+          appId: "1:219467471900:web:a0f53a7010efb7b1ddd3d9",
+          measurementId: "G-DPJRP7YPKB"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        const auth = getAuth(app);
+        let authModal;
+
+                document.addEventListener("DOMContentLoaded", () => {
+                const authModalElement = document.getElementById("authModal");
+                authModal = new bootstrap.Modal(authModalElement);
+
+  // 🔥 FORCE CLEANUP AFTER MODAL CLOSE
+  authModalElement.addEventListener("hidden.bs.modal", () => {
+    document.body.classList.remove("modal-open");
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+
+    const backdrops = document.querySelectorAll(".modal-backdrop");
+    backdrops.forEach(el => el.remove());
   });
 });
+        window.firebaseAuth = auth;
+        // Signup Logic
+const signupBtn = document.getElementById("signupBtn");
+
+signupBtn.addEventListener("click", async () => {
+  const email = document.getElementById("signupEmail").value;
+  const password = document.getElementById("signupPassword").value;
+
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    authModal.hide();
+    console.log("User:", userCredential.user);
+  } catch (error) {
+    console.error(error.message);
+    console.error(error);
+  }
+});
+
+// Login Logic
+const loginBtn = document.getElementById("loginBtn");
+
+loginBtn.addEventListener("click", async () => {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    authModal.hide();
+    console.log("Logged in user:", userCredential.user);
+  } catch (error) {
+    console.error(error.message);
+    console.error(error);
+  }
+});
+
+
+// Detect Auth State
+const authBtn = document.getElementById("authBtn");
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    authBtn.textContent = "Logout (" + user.email + ")";
+    
+    authBtn.onclick = async () => {
+      await signOut(auth);
+      console.log("Logged out successfully!");
+      location.reload();
+    };
+
+  } else {
+    authBtn.textContent = "Login / Signup";
+    
+    authBtn.onclick = () => {
+  authModal.show();
+    };
+  }
+});
+
+// Scroll-based flow movement
+document.addEventListener("DOMContentLoaded", function () {
+
+const lines = document.querySelectorAll(".flow-line");
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+
+  lines.forEach((line, index) => {
+    const speed = (index + 1) * 0.03;
+
+    if (line.classList.contains("v")) {
+      line.style.transform = `translateY(${scrollY * speed}px)`;
+    }
+
+    if (line.classList.contains("d")) {
+      line.style.transform = `translate(${scrollY * speed}px, ${scrollY * speed * 0.5}px)`;
+    }
+
+    if (line.classList.contains("a")) {
+      line.style.transform = `translate(-${scrollY * speed}px, ${scrollY * speed * 0.4}px)`;
+    }
+
+  });
+});
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //-----------------------------calculator ku---------------------------
