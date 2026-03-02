@@ -25,9 +25,6 @@ h1, h2, h3, h4, h5 {
 }
 
 
-.container-fluid {
-    max-width: 1400px;
-}
 
 
 
@@ -190,4 +187,183 @@ footer{
 
 .flow-line.light {
     opacity: 0.06;
+}
+
+
+
+
+
+
+
+/* === Auth Modal Upgrade === */
+
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.nav-tabs .nav-link {
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+}
+
+
+
+
+/* === Premium Glass Modal === */
+
+.modal-backdrop.show {
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+body.modal-open .container-fluid {
+    filter: blur(12px) brightness(0.92);
+    transition: filter 0.3s ease;
+}
+
+.modal-content {
+    background: #ffffff;
+    border-radius: 28px;
+    border: none;
+    box-shadow:
+            0 35px 90px rgba(0, 0, 0, 0.28),
+            0 10px 30px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        
+    transform: scale(1);
+    transition: all 0.25s ease;
+}
+
+.modal-content:hover {
+    transform: translateY(-4px);
+}
+
+
+
+
+
+/* === Modern Input Upgrade === */
+
+.form-floating > .form-control {
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    padding: 1rem 0.9rem;
+    height: 58px;
+    transition: all 0.2s ease;
+}
+
+.form-floating > .form-control:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.form-floating > label {
+    padding-left: 0.9rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+
+
+/* === Premium Pill Tabs (Refined) === */
+
+.nav-tabs {
+    border-bottom: none;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 8px 22px;
+    margin: 0 6px;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    overflow: hidden;
+}
+
+.nav-tabs .nav-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.nav-tabs .nav-link.active {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
+}
+
+.nav-tabs .nav-link,
+.nav-tabs .nav-link.active {
+    border: none !important;
+    outline: none;
+}
+
+.nav-tabs {
+    border-bottom: none !important;
+}
+
+
+
+/* === Auth Title Upgrade === */
+
+.auth-title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.brand-text {
+    color: #f59e0b; /* richer modern orange */
+    text-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
+}
+
+.auth-subtitle {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-bottom: 1.2rem;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 420px;
+    }
+}
+
+
+
+/* === Google Button Style === */
+
+.btn-google {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #111827;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-google:hover {
+    background: #f9fafb;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
 }
