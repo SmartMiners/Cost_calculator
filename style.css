@@ -83,6 +83,19 @@ li{
     transition: 1s;
 }
 
+.card-text {
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.description.expanded {
+    -webkit-line-clamp: unset;
+    display: block;
+}
+
 
 
 /*-----------------contact-----------------------*/
