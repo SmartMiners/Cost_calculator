@@ -35,39 +35,41 @@
       </div>
 
 
+      <nav class="navbar navbar-expand-lg px-4" id="navbar">
+        <img src="Proptimiz main logo.gif" alt="logo" class="logo">
+        <!----<b class="bold"> Solutions<br>Private Limited</b>---->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg></button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#service">Services & Products</a>
+                </li>
+        <li class="nav-item">
+                    <a class="nav-link" href="#Cost Calculator">Cost Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item ms-3">
+                    <button class="btn btn-outline-primary" id="authBtn">
+                        Login / Signup
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-   <div class="container-fluid col-10">
-    <nav class="navbar navbar-expand-lg" id="navbar">
-            <img src="Proptimiz main logo.gif" alt="logo" class="logo">
-            <!----<b class="bold"> Solutions<br>Private Limited</b>---->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-              </svg></button>
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav ms-auto mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#service">Services & Products</a>
-                    </li>
-		    <li class="nav-item">
-                        <a class="nav-link" href="#Cost Calculator">Cost Calculator</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    <li class="nav-item ms-3">
-                        <button class="btn btn-outline-primary" id="authBtn">
-                            Login / Signup
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+
+    <div class="container col-10">
+    
 
         <!------------------------------------Home---------------------------------------------------------->
         <section id="home">
@@ -337,15 +339,19 @@
 
     <!-- Auth Modal -->
 <div class="modal fade" id="authModal" tabindex="-1">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         
         <div class="modal-header">
-          <h5 class="modal-title">Account Access</h5>
+            <div class="text-center w-100">
+                <h2 class="auth-title mb-2">
+                    Welcome to <span class="brand-text">Proptimiz</span>
+                  </h2>
+              </div>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
   
-        <div class="modal-body">
+        <div class="modal-body px-4 px-md-5 py-4">
   
           <!-- Tabs -->
           <ul class="nav nav-tabs" id="authTabs" role="tablist">
@@ -361,19 +367,40 @@
   
             <!-- Login -->
             <div class="tab-pane fade show active" id="loginTab">
-                <input type="email" id="loginEmail" class="form-control mb-2" placeholder="Email">
-                <input type="password" id="loginPassword" class="form-control mb-2" placeholder="Password">
-                <button id="loginBtn" class="btn btn-primary w-100">Login</button>
-              <hr>
-              <button class="btn btn-danger w-100">Login with Google</button>
+                <div class="form-floating mb-3">
+                    <input type="email" id="loginEmail" class="form-control" placeholder="Email">
+                    <label for="loginEmail">Email address</label>
+                  </div>
+                  
+                  <div class="form-floating mb-3">
+                    <input type="password" id="loginPassword" class="form-control" placeholder="Password">
+                    <label for="loginPassword">Password</label>
+                  </div>
+                  <button id="loginBtn" class="btn btn-dark w-100 mb-3">Login</button>
+              
+                  <button id="googleLoginBtn" class="btn btn-google w-100">Continue with Google</button>
             </div>
   
             
             <!-- Signup -->
                 <div class="tab-pane fade" id="signupTab">
-                    <input type="email" id="signupEmail" class="form-control mb-2" placeholder="Email">
-                    <input type="password" id="signupPassword" class="form-control mb-2" placeholder="Password">
-                    <button id="signupBtn" class="btn btn-success w-100">Create Account</button>
+
+
+                 <div class="form-floating mb-3">
+                    <input type="text" id="signupName" class="form-control" placeholder="Full Name">
+                    <label for="signupName">Full Name</label>
+                </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="email" id="signupEmail" class="form-control" placeholder="Email">
+                        <label for="signupEmail">Email address</label>
+                      </div>
+                      
+                      <div class="form-floating mb-3">
+                        <input type="password" id="signupPassword" class="form-control" placeholder="Password">
+                        <label for="signupPassword">Password</label>
+                      </div>
+                      <button id="signupBtn" class="btn btn-dark w-100">Create Account</button>
                 </div>
   
           </div>
@@ -392,6 +419,6 @@
     
 
     <script type="module" src="script.js"></script>
-    <script src="script.js"></script>
+    
 </body>
 </html>
