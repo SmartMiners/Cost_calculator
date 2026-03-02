@@ -1,4 +1,7 @@
 // Add your custom JavaScript code here
+
+let authModal;
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Custom script loaded successfully!");
     // Add more custom JavaScript code as needed
@@ -59,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const analytics = getAnalytics(app);
 
         const auth = getAuth(app);
-        let authModal;
+        authModal;
 
                 document.addEventListener("DOMContentLoaded", () => {
                 const authModalElement = document.getElementById("authModal");
@@ -80,53 +83,56 @@ document.addEventListener("DOMContentLoaded", function () {
 const signupBtn = document.getElementById("signupBtn");
 
 signupBtn.addEventListener("click", async () => {
+
   const name = document.getElementById("signupName").value;
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
 
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-// Send verification email
-await sendEmailVerification(userCredential.user);
+    const userCredential = await createUserWithEmailAndPassword(firebaseAuth, email, password);
 
-alert("Verification email sent! Please check your inbox.");
-authModal.hide();
-
-    // 🔥 Save display name
-    await updateProfile(userCredential.user, {
+    // Save display name
+    await userCredential.user.updateProfile({
       displayName: name
     });
 
+    // Send email verification (OTP-like verification email)
+    await userCredential.user.sendEmailVerification();
+
+    alert("Verification email sent. Please verify before logging in.");
+
     authModal.hide();
-    console.log("User created:", userCredential.user);
 
   } catch (error) {
-    console.error(error.message);
+    alert(error.message);
   }
+
 });
 
 // Login Logic
-const loginBtn = document.getElementById("loginBtn");
-
 loginBtn.addEventListener("click", async () => {
+
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
 
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+    const userCredential = await signInWithEmailAndPassword(firebaseAuth, email, password);
+
     if (!userCredential.user.emailVerified) {
       alert("Please verify your email before logging in.");
-      await signOut(auth);
+      await firebaseAuth.signOut();
       return;
     }
-    
-    authModal.hide();
-    console.log("Logged in user:", userCredential.user);
+
+    authModal.hide(); // 👈 CLOSE MODAL HERE
+    window.location.reload();
+
   } catch (error) {
-    console.error(error.message);
-    console.error(error);
+    alert(error.message);
   }
+
 });
 
 
@@ -297,25 +303,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ===== Protect Calculator Page =====
 
+// ===== Secure Calculator Page Protection =====
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
   if (window.location.pathname.includes("calculator.html")) {
 
-    const user = firebaseAuth.currentUser;
+    onAuthStateChanged(firebaseAuth, (user) => {
 
-    if (!user) {
-      alert("Please login to access the Cost Calculator.");
-      window.location.href = "index.html";
-    }
-
-    const logoutBtn = document.getElementById("logoutBtn");
-
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", async () => {
-        await firebaseAuth.signOut();
+      if (!user) {
+        alert("Please login to access the Cost Calculator.");
         window.location.href = "index.html";
-      });
-    }
+      } else {
+        console.log("User verified:", user.email);
+
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        if (logoutBtn) {
+          logoutBtn.addEventListener("click", async () => {
+            await firebaseAuth.signOut();
+            window.location.href = "index.html";
+          });
+        }
+      }
+
+    });
 
   }
 
