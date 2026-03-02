@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Proptimiz | Cost Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg px-4" id="navbar">
+    <img src="Proptimiz main logo.gif" alt="logo" class="logo">
+    <div class="ms-auto">
+        <button class="btn btn-outline-danger" id="logoutBtn">Logout</button>
+    </div>
+</nav>
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">Engineering Cost Calculator</h2>
+
+    <section id="Cost Calculator">
+                
+
+             <div class="container m-5">
+       <h1 class="text-center">COST CALCULATOR</h1>
+       <div class="row">
+            <div class="col-md-6 my-2" id="cal-inputs">
+                  <div class="card shadow">
+                      <form>      
+                      <label>
+                            <input type="radio" name="operation" value="drilling" checked onclick="updateInputFields()">
+                            Drilling
+                      </label>
+                      <label>
+                             <input type="radio" name="operation" value="blasting" onclick="updateInputFields()">
+                             Blasting
+                      </label>
+<label>
+<input type="radio" name="operation" value="mucking" checked onclick="updateInputFields()">
+Mucking
+</label>
+<label>
+<input type="radio" name="operation" value="transportation" onclick="updateInputFields()">
+Transportation
+</label>
+<br><br>
+
+<div id="inputContainer"></div>
+</form>
+           </div>
+            </div>
+            <div class="col-md-6 my-2" id="cal-results">
+                  <div class="card shadow">
+                    <form>
+                        <!-- Drilling results -->
+                            <div id="drillingResults" style="display: none;">
+<p>Drilling Type:<span id="drillingType"></span></p>
+<p>Number of Holes Required: <span id="holesRequired"></span> Holes</p>
+<p>Total Meterage Required: <span id="totalMeterage"></span> Meters</p>
+<p>Compressor Hours Required: <span id="compressorHoursRequired"></span> Hours</p>
+<p>Compressor Required: <span id="compressorRequired"></span> Nos</p>
+<p>Compressor Diesel Cost: <span id="compressorDieselCost"></span> Rs</p>
+<p>Drilling Manpower Cost: <span id="compressorManpowerCost"></span> Rs</p>
+<p>Drilling Maintenance Cost: <span id="drillingMaintenanceCost"></span> Rs</p>
+<p>Drilling Cost Per Ton: <span id="drillingCostPerTon"></span> Rs/ Ton</p>
+</div>
+
+                        <!-- Blasting results -->
+                             <div id="blastingResults" style="display: none;">
+<p>Blasting Tons: <span id="result_blast_tons"></span> Tons</p>
+<p>Explosive Required Per Hole: <span id="explosiveRequiredPerHole"></span> Kg/ Hole</p>
+<p>Total Explosives Required: <span id="totalExplosivesRequired"></span> Kg</p>
+<p>Total Explosives Cost: <span id="totalExplosivesCost"></span> Rs</p>
+<p>Charge Factor: <span id="chargeFactor"></span> Kg/ Cu.m</p>
+<p>Explosive Cost Per Ton: <span id="explosivesCostPerTon"></span> Rs/ Ton</p>
+</div>
+
+                        <!-- Mucking results -->
+                             <div id="muckingResults" style="display: none;">
+<p>Excavator Hours: <span id="excavatorHours"></span> Hours</p>
+<p>Excavator Production Capacity: <span id="excavatorProductionCapacity"></span> Tons</p>
+<p>Excavator Manpower Required: <span id="excavatorManpowerRequired"></span> Nos</p>
+<p>Excavator Manpower Cost: <span id="excavatorManpowerCost"></span> Rs</p>
+<p>Excavator Diesel Cost: <span id="excavatorDieselCost"></span> Rs</p>
+<p>Excavator Maintanence Cost: <span id="excavatorMaintanenceCost"></span> Rs</p>
+<p>Mucking Cost Per Ton: <span id="muckingCostPerTon"></span> Rs/ Ton</p>
+
+</div>
+
+                        <!-- Transportation results -->
+                              <div id="transportationResults" style="display: none;">
+<p>Tippers Required: <span id="tippersRequired"></span> Nos</p>
+<p>Tipper Manpower Cost: <span id="tipperManpowerCost"></span> Rs</p>
+<p>Total Trips: <span id="totalTrips"></span> Nos</p>
+<p>Total KM's: <span id="totalKms"></span> Km's</p>
+<p>Total Diesel Required For Tippers: <span id="tipperDieselRequired"></span> Liters</p>
+<p>Tipper Diesel Cost: <span id="tipperDieselCost"></span> Rs</p>
+<p>Tipper Maintanence Cost: <span id="tipperMaintanenceCost"></span> Rs</p>
+<p>Transportation Cost Per Ton: <span id="transportationCostPerTon"></span> Rs/ Ton</p>
+
+</div> 
+                    </form>
+            </div>
+            </div>
+       </div>
+     </div>
+    </section>
+
+</div>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
