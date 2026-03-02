@@ -28,13 +28,17 @@ document.addEventListener("DOMContentLoaded", function () {
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+        import { sendEmailVerification } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
         import { 
-  getAuth, 
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
-} from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+          getAuth, 
+          createUserWithEmailAndPassword,
+          signInWithEmailAndPassword,
+          onAuthStateChanged,
+          signOut,
+          GoogleAuthProvider,
+          signInWithPopup,
+          updateProfile
+        } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -76,16 +80,29 @@ document.addEventListener("DOMContentLoaded", function () {
 const signupBtn = document.getElementById("signupBtn");
 
 signupBtn.addEventListener("click", async () => {
+  const name = document.getElementById("signupName").value;
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
 
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+// Send verification email
+await sendEmailVerification(userCredential.user);
+
+alert("Verification email sent! Please check your inbox.");
+authModal.hide();
+
+    // 🔥 Save display name
+    await updateProfile(userCredential.user, {
+      displayName: name
+    });
+
     authModal.hide();
-    console.log("User:", userCredential.user);
+    console.log("User created:", userCredential.user);
+
   } catch (error) {
     console.error(error.message);
-    console.error(error);
   }
 });
 
@@ -98,6 +115,12 @@ loginBtn.addEventListener("click", async () => {
 
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    if (!userCredential.user.emailVerified) {
+      alert("Please verify your email before logging in.");
+      await signOut(auth);
+      return;
+    }
+    
     authModal.hide();
     console.log("Logged in user:", userCredential.user);
   } catch (error) {
@@ -112,7 +135,7 @@ const authBtn = document.getElementById("authBtn");
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    authBtn.textContent = "Logout (" + user.email + ")";
+    authBtn.textContent = "Logout (" + (user.displayName || user.email) + ")";
     
     authBtn.onclick = async () => {
       await signOut(auth);
@@ -155,6 +178,21 @@ window.addEventListener("scroll", () => {
   });
 });
 
+});
+
+//--------------------------------login with google button---------------------------------------------------------------------------
+
+const googleBtn = document.getElementById("googleLoginBtn");
+const provider = new GoogleAuthProvider();
+
+googleBtn.addEventListener("click", async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    console.log("Google user:", result.user);
+    authModal.hide();
+  } catch (error) {
+    console.error(error.message);
+  }
 });
 
 
@@ -496,3 +534,5 @@ function updateResult() {
 window.onload = function() {
   updateInputFields();
 }
+
+
