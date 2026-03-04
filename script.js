@@ -412,7 +412,7 @@ navLinks.forEach(link => {
 //-----------------------------calculator ku---------------------------
 
 
-function updateInputFields() {
+window.updateInputFields = function () {
   const operation = document.querySelector('input[name="operation"]:checked').value;
   const inputContainer = document.getElementById('inputContainer');
   inputContainer.innerHTML = '';
