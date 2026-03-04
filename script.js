@@ -412,7 +412,7 @@ navLinks.forEach(link => {
 //-----------------------------calculator ku---------------------------
 
 
-window.updateInputFields = function () {
+function updateInputFields() {
   const operation = document.querySelector('input[name="operation"]:checked').value;
   const inputContainer = document.getElementById('inputContainer');
   inputContainer.innerHTML = '';
@@ -727,3 +727,10 @@ window.onload = function() {
 }
 
 
+window.updateInputFields = updateInputFields;
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (typeof updateInputFields === "function") {
+        updateInputFields();
+    }
+});
