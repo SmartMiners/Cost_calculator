@@ -10,13 +10,24 @@ body{
     overflow-x: hidden;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 
 section{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 100px 0;
+    min-height:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:80px 0;
+    scroll-margin-top:90px;
+}
+
+@media (max-width:768px){
+    section{
+        padding:60px 0;
+    }
 }
 
 h1, h2, h3, h4, h5 {
@@ -24,10 +35,14 @@ h1, h2, h3, h4, h5 {
     letter-spacing: 0.5px;
 }
 
+.navbar-toggler {
+    font-size: 28px;
+    border: none;
+}
 
-
-
-
+.navbar-toggler-icon{
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23f59e0b' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
 
 #navbar {
     position: sticky;
@@ -39,7 +54,26 @@ h1, h2, h3, h4, h5 {
 }
 
 .logo{
-    width: 10%;
+    width: 140px;
+    max-width: 40vw;
+    height: auto;
+}
+
+
+/* Navbar shrink effect */
+
+#navbar{
+    transition: all 0.3s ease;
+}
+
+#navbar.shrink{
+    padding-top:6px;
+    padding-bottom:6px;
+    box-shadow:0 5px 25px rgba(0,0,0,0.08);
+}
+
+#navbar.shrink .logo{
+    width:110px;
 }
 
 
@@ -74,11 +108,26 @@ li{
     transition: .1s;
 }
 
+
+
+.earth-model{
+    width:100%;
+    height:600px;
+}
+
+@media (max-width:768px){
+    .earth-model{
+        height:320px;
+    }
+}
+
+
 /*--------------About------------------*/
 #about img{
-    width: 30rem;
-    height: 20rem;
-    border-radius: 50px;
+    width:100%;
+    max-width:500px;
+    height:auto;
+    border-radius:50px;
 }
 
 
@@ -96,6 +145,14 @@ li{
 .card img:hover{
     transform: scale(1.5);
     transition: 1s;
+}
+
+@media (max-width:768px){
+
+    .card img:hover{
+        transform:none;
+    }
+
 }
 
 
@@ -155,7 +212,7 @@ footer{
 
 /* ===== Locked Calculator Section ===== */
 
-#Cost\ Calculator {
+#cost-calculator {
     position: relative;
 }
 
@@ -415,4 +472,23 @@ body.modal-open .container-fluid {
     background: #f9fafb;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     transform: translateY(-2px);
+}
+
+@media (max-width:768px){
+
+    .navbar-nav{
+        text-align:center;
+        padding-top:15px;
+    }
+
+    .nav-link{
+        padding:12px 0;
+        font-size:16px;
+    }
+
+    .navbar .btn{
+        margin-top:10px;
+        width:100%;
+    }
+
 }
