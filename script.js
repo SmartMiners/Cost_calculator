@@ -241,6 +241,22 @@ if (contactForm) {
 
 
 
+// Navbar shrink on scroll
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+    if(window.scrollY > 50){
+        navbar.classList.add("shrink");
+    }else{
+        navbar.classList.remove("shrink");
+    }
+});
+
+
+
+
+
+
 
 // ===== Smart Get Started Button =====
 
@@ -333,6 +349,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+
+
+// Auto close mobile navbar only when menu is open
+const navLinks = document.querySelectorAll(".nav-link");
+const menu = document.getElementById("menu");
+
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+
+        if(menu.classList.contains("show")){
+            const bsCollapse = new bootstrap.Collapse(menu);
+            bsCollapse.hide();
+        }
+
+    });
+});
+
+
+
+
+
+
+
+
 
 
 
