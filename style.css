@@ -512,3 +512,19 @@ body.modal-open .container-fluid {
     transform:translateY(-3px);
     box-shadow:0 12px 35px rgba(0,0,0,0.12);
 }
+
+
+
+/* ===== Operation Selector ===== */
+
+#cal-inputs label{
+    margin-right:12px;
+    font-weight:500;
+    cursor:pointer;
+}
+
+#cal-inputs input[type="radio"]{
+    accent-color:#ff7a18;   /* matches your orange theme */
+    transform:scale(1.1);
+    margin-right:4px;
+}
