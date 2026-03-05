@@ -1,4 +1,9 @@
 // Add your custom JavaScript code here
+const isLocal =
+  location.hostname === "localhost" ||
+  location.hostname === "127.0.0.1";
+
+
 
 let authModal;
 
@@ -80,9 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
         window.firebaseAuth = auth;
         // Signup Logic
-const signupBtn = document.getElementById("signupBtn");
+        const signupBtn = document.getElementById("signupBtn");
 
-signupBtn.addEventListener("click", async () => {
+        if (signupBtn) {
+          signupBtn.addEventListener("click", async () => {
 
   const name = document.getElementById("signupName").value;
   const email = document.getElementById("signupEmail").value;
@@ -109,9 +115,13 @@ signupBtn.addEventListener("click", async () => {
   }
 
 });
+}
 
 // Login Logic
-loginBtn.addEventListener("click", async () => {
+const loginBtn = document.getElementById("loginBtn");
+
+if (loginBtn) {
+  loginBtn.addEventListener("click", async () => {
 
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
@@ -134,12 +144,14 @@ loginBtn.addEventListener("click", async () => {
   }
 
 });
+}
 
 
 // Detect Auth State
 const authBtn = document.getElementById("authBtn");
 
-onAuthStateChanged(auth, (user) => {
+if (authBtn) {
+  onAuthStateChanged(auth, (user) => {
   if (user) {
     authBtn.textContent = "Logout (" + (user.displayName || user.email) + ")";
     
@@ -157,6 +169,7 @@ onAuthStateChanged(auth, (user) => {
     };
   }
 });
+}
 
 // Scroll-based flow movement
 document.addEventListener("DOMContentLoaded", function () {
@@ -191,7 +204,8 @@ window.addEventListener("scroll", () => {
 const googleBtn = document.getElementById("googleLoginBtn");
 const provider = new GoogleAuthProvider();
 
-googleBtn.addEventListener("click", async () => {
+if (googleBtn) {
+  googleBtn.addEventListener("click", async () => {
   try {
     const result = await signInWithPopup(auth, provider);
     console.log("Google user:", result.user);
@@ -200,6 +214,7 @@ googleBtn.addEventListener("click", async () => {
     console.error(error.message);
   }
 });
+}
 
 
 
@@ -504,6 +519,8 @@ function updateInputFields() {
   updateResult();
 }
 
+window.updateInputFields = updateInputFields;
+
 function updateResult() {
   
   
@@ -722,12 +739,7 @@ function updateResult() {
   }
 }
 
-window.onload = function() {
-  updateInputFields();
-}
 
-
-window.updateInputFields = updateInputFields;
 
 document.addEventListener("DOMContentLoaded", function () {
     if (typeof updateInputFields === "function") {
