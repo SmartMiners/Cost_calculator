@@ -528,3 +528,30 @@ body.modal-open .container-fluid {
     transform:scale(1.1);
     margin-right:4px;
 }
+
+/* ===== Calculator Inputs ===== */
+
+#inputContainer{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 12px;
+    align-items:center;
+}
+
+#inputContainer label{
+    font-size:14px;
+    font-weight:500;
+}
+
+#inputContainer input{
+    width:100%;
+    padding:6px 8px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+#inputContainer input:focus{
+    border-color:#ff7a18;
+    outline:none;
+    box-shadow:0 0 4px rgba(255,122,24,0.3);
+}
