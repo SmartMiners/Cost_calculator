@@ -492,3 +492,23 @@ body.modal-open .container-fluid {
     }
 
 }
+
+
+/* ===== Calculator Cards ===== */
+
+#cal-inputs .card,
+#cal-results .card{
+    border-radius:16px;
+    border:none;
+    padding:25px;
+    background:#ffffff;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* subtle hover */
+#cal-inputs .card:hover,
+#cal-results .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 35px rgba(0,0,0,0.12);
+}
