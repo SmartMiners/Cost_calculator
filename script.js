@@ -343,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     onAuthStateChanged(firebaseAuth, (user) => {
 
-      if (!user) {
+      if (!user && !isLocal) {
         alert("Please login to access the Cost Calculator.");
         window.location.href = "index.html";
       } else {
@@ -445,8 +445,8 @@ function updateInputFields() {
       inputField.oninput = updateResult;
       inputContainer.appendChild(label);
       inputContainer.appendChild(inputField);
-      inputContainer.appendChild(document.createElement('br'));
-      inputContainer.appendChild(document.createElement('br'));
+      // inputContainer.appendChild(document.createElement('br'));
+      // inputContainer.appendChild(document.createElement('br'));
     });
     document.getElementById('drillingResults').style.display = 'block';
     document.getElementById('blastingResults').style.display = 'none';
@@ -466,8 +466,8 @@ function updateInputFields() {
       inputField.oninput = updateResult;
       inputContainer.appendChild(label);
       inputContainer.appendChild(inputField);
-      inputContainer.appendChild(document.createElement('br'));
-      inputContainer.appendChild(document.createElement('br'));
+      // inputContainer.appendChild(document.createElement('br'));
+      // inputContainer.appendChild(document.createElement('br'));
     });
     document.getElementById('drillingResults').style.display = 'none';
     document.getElementById('blastingResults').style.display = 'block';
@@ -487,8 +487,8 @@ function updateInputFields() {
       inputField.oninput = updateResult;
       inputContainer.appendChild(label);
       inputContainer.appendChild(inputField);
-      inputContainer.appendChild(document.createElement('br'));
-      inputContainer.appendChild(document.createElement('br'));
+      // inputContainer.appendChild(document.createElement('br'));
+      // inputContainer.appendChild(document.createElement('br'));
     });
     document.getElementById('drillingResults').style.display = 'none';
     document.getElementById('blastingResults').style.display = 'none';
@@ -508,8 +508,8 @@ function updateInputFields() {
       inputField.oninput = updateResult;
       inputContainer.appendChild(label);
       inputContainer.appendChild(inputField);
-      inputContainer.appendChild(document.createElement('br'));
-      inputContainer.appendChild(document.createElement('br'));
+      // inputContainer.appendChild(document.createElement('br'));
+      // inputContainer.appendChild(document.createElement('br'));
     });
     document.getElementById('drillingResults').style.display = 'none';
     document.getElementById('blastingResults').style.display = 'none';
