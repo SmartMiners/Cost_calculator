@@ -206,12 +206,28 @@ li{
 
 
 /*--------------About------------------*/
-#about img{
-    width:100%;
-    max-width:500px;
-    height:auto;
-    border-radius:50px;
+/* ===== About Section Layout ===== */
+
+#about .row{
+    align-items: center;
 }
+
+.about-img{
+    width:100%;
+    max-width:520px;
+    border-radius:40px;
+}
+
+#about{
+    padding-top:60px;
+    padding-bottom:60px;
+}
+
+.about-title{
+    font-size:42px;
+    font-weight:600;
+}
+
 
 
 /*---------------Services-----------------*/
