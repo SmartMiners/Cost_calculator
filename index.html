@@ -58,9 +58,25 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
-                <li class="nav-item ms-3">
+                <li class="nav-item dropdown ms-3" id="userMenu" style="display:none;">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    👤 <span id="userName">User</span>
+                  </a>
+                
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a class="dropdown-item" href="calculator.html">Calculator</a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
+                      <button class="dropdown-item text-danger" id="logoutBtn">Logout</button>
+                    </li>
+                  </ul>
+                </li>
+                
+                <li class="nav-item ms-3" id="loginMenu">
                     <button class="btn btn-outline-primary" id="authBtn">
-                        Login / Signup
+                        Login
                     </button>
                 </li>
             </ul>
@@ -73,11 +89,13 @@
 
         <!------------------------------------Home---------------------------------------------------------->
         <section id="home">
-            <div class="row">
+            <div class="row align-items-center hero-row">
                 <div class="col-lg-6 col-md-6 col-12 order-1 pt-5">
-                    <h1 class="display-4">Welcome to<br><span>PROPTIMIZ</span></h1>
-                    <p class="my-lg-2 my-3">We, at Proptimiz, possess phenomenal skills in performing accurate field surveys, operating various professional equipment and tools, developing detailed sketches, and analyzing maps and other documents.</p>
-                    <button id="getStartedBtn" class="btn btn-primary my-lg-3 my-3">Get Started</button>
+                    <h1 class="display-4 hero-animate">Welcome to<br><span>PROPTIMIZ</span></h1>
+                    <p class="my-lg-2 my-3 hero-animate">We, at Proptimiz, possess phenomenal skills in performing accurate field surveys, operating various professional equipment and tools, developing detailed sketches, and analyzing maps and other documents.</p>
+                    <button id="getStartedBtn" class="btn hero-cta hero-animate">
+                      Start Exploring
+                    </button>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12 py-lg-0 py-3 order-sm-2">
                     <model-viewer src="earth-cartoon/source/earth-cartoon.glb" 
@@ -87,7 +105,7 @@
 			    	
 			    	  field-of-view="5"
                                   ar
-                                  class="earth-model">
+                                  class="earth-model hero-animate">
                     </model-viewer>
                 </div>
             </div>
@@ -104,7 +122,7 @@
                                 <h6 style="font-size: 50px;">About Us</h6>
                                 <h1 class="display-5"><span>Protimiz</span></h1>
                                 <p>We are one of the best Mining Solutions provider in India in terms of Mine Planning, Optimization of Mine to Mill Operations and Facilitating Licensing Procedures for Mining Entities with best in the market.</p>
-                                <button class="btn btn-primary my-lg-3 my-3">Services</button>
+                                <a href="#service" class="btn hero-cta">View Services</a>
                             </div>
                         </div>
                     </section>
@@ -355,10 +373,60 @@
                         </div>
                       </section>
 		
-		<footer>Ⓒ Proptimiz Solutions Limited 2025.</footer>
+                      
 	
 
     </div>
+
+    <footer class="site-footer">
+
+      <div class="footer-content container-fluid">
+        <div class="row justify-content-center">
+    
+          <div class="col-lg-3 col-md-6 col-12 mb-4">
+            <img src="Proptimiz main logo.gif" class="footer-logo">
+            <p class="footer-text">
+              Proptimiz delivers advanced mining engineering solutions,
+              operational optimization, and professional consulting services.
+            </p>
+          </div>
+    
+          <div class="col-lg-2 col-md-6 col-6 mb-4">
+            <h5>Company</h5>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#service">Services</a></li>
+              <li><a href="#cost-calculator">Calculator</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-lg-2 col-md-6 col-6 mb-4">
+            <h5>Resources</h5>
+            <ul class="footer-links">
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Support</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-lg-3 col-md-6 col-12 mb-4">
+            <h5>Contact</h5>
+            <p class="footer-contact">
+              India<br>
+              info@proptimiz.com
+            </p>
+          </div>
+    
+        </div>
+      </div>
+    
+      <div class="footer-bottom">
+        © 2026 Proptimiz Solutions Pvt Ltd. All rights reserved.
+      </div>
+    
+    </footer>
 
     <!-- Auth Modal -->
 <div class="modal fade" id="authModal" tabindex="-1">
