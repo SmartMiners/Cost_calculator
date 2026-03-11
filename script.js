@@ -99,12 +99,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const userCredential = await createUserWithEmailAndPassword(firebaseAuth, email, password);
 
     // Save display name
-    await userCredential.user.updateProfile({
-      displayName: name
-    });
+
+await updateProfile(userCredential.user, {
+  displayName: name
+});
 
     // Send email verification (OTP-like verification email)
-    await userCredential.user.sendEmailVerification();
+    await sendEmailVerification(userCredential.user);
 
     alert("Verification email sent. Please verify before logging in.");
 
@@ -113,9 +114,12 @@ document.addEventListener("DOMContentLoaded", function () {
   } catch (error) {
     alert(error.message);
   }
+  window.location.reload();
 
 });
 }
+
+
 
 // Login Logic
 const loginBtn = document.getElementById("loginBtn");
@@ -162,7 +166,7 @@ if (authBtn) {
     };
 
   } else {
-    authBtn.textContent = "Login / Signup";
+    authBtn.textContent = "Login";
     
     authBtn.onclick = () => {
   authModal.show();
