@@ -105,9 +105,11 @@ await updateProfile(userCredential.user, {
 });
 
     // Send email verification (OTP-like verification email)
-    await sendEmailVerification(userCredential.user);
+    await userCredential.user.reload();
+await sendEmailVerification(userCredential.user);
 
     alert("Verification email sent. Please verify before logging in.");
+    await signOut(firebaseAuth);
 
     authModal.hide();
 
