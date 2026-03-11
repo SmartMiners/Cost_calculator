@@ -77,6 +77,51 @@ h1, h2, h3, h4, h5 {
 }
 
 
+/* Google Login Button */
+
+.google-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    background:white;
+    border:1px solid #dadce0;
+    border-radius:8px;
+
+    font-weight:500;
+    font-size:15px;
+
+    padding:12px;
+
+    transition:all 0.2s ease;
+}
+
+.google-btn img{
+    width:20px;
+    height:20px;
+}
+
+.google-btn:hover{
+    background:#f7f7f7;
+    border-color:#c6c6c6;
+}
+
+.google-btn:active{
+    transform:scale(0.98);
+}
+
+.google-btn{
+    animation:googlePulse 2s infinite;
+}
+
+@keyframes googlePulse{
+    0%{box-shadow:0 0 0 0 rgba(66,133,244,0.4);}
+    70%{box-shadow:0 0 0 10px rgba(66,133,244,0);}
+    100%{box-shadow:0 0 0 0 rgba(66,133,244,0);}
+}
+
+
 /*--------------------------home-----------------------------*/
 
 /* ===== Hero Section Upgrade ===== */
@@ -404,6 +449,66 @@ form{
     z-index:-1;
     pointer-events:none;
 }
+
+
+/* Calculator cards */
+
+#cal-inputs .card,
+#cal-results .card{
+    padding:20px;
+}
+
+/* Inputs inside calculator */
+
+#cal-inputs input,
+#cal-inputs select{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    font-size:16px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+/* Labels */
+
+#cal-inputs label{
+    font-weight:500;
+    margin-top:8px;
+}
+
+/* Radio selector row */
+
+.operation-selector{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
+
+/* Mobile adjustments */
+
+@media (max-width:768px){
+
+    .calculator-header{
+        flex-direction:column;
+        text-align:center;
+        gap:10px;
+    }
+
+    #cal-inputs .card,
+    #cal-results .card{
+        padding:15px;
+    }
+
+    #cal-inputs input,
+    #cal-inputs select{
+        font-size:16px;
+        padding:14px;
+    }
+
+}
+
 
 
 /* ===== Locked Calculator Section ===== */
