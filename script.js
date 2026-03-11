@@ -108,7 +108,7 @@ await updateProfile(userCredential.user, {
     await userCredential.user.reload();
 await sendEmailVerification(userCredential.user);
 
-    alert("Verification email sent. Please verify before logging in.");
+    alert("Verification email sent. Please check your Inbox or Spam folder and verify your email before logging in.");
     await signOut(firebaseAuth);
 
     authModal.hide();
