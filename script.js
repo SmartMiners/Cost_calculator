@@ -134,11 +134,16 @@ if (loginBtn) {
 
     const userCredential = await signInWithEmailAndPassword(firebaseAuth, email, password);
 
-    if (!userCredential.user.emailVerified) {
-      alert("Please verify your email before logging in.");
-      await firebaseAuth.signOut();
-      return;
-    }
+const user = userCredential.user;
+
+if (!user.emailVerified) {
+
+  alert("Please verify your email before logging in.");
+
+  await signOut(firebaseAuth);
+  return;
+
+}
 
     authModal.hide(); // 👈 CLOSE MODAL HERE
     window.location.reload();
